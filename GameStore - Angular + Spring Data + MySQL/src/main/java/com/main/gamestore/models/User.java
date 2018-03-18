@@ -41,16 +41,16 @@ public class User implements Serializable, UserDetails {
 	@Enumerated(EnumType.STRING)
 	private UserRole role;
 	
-	@ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "users_games",
-    joinColumns = @JoinColumn(name = "userId", referencedColumnName = "id"),
-    inverseJoinColumns = @JoinColumn(name = "gameId", referencedColumnName = "id"))
-	private List<Game> games;
+//	@ManyToMany(fetch = FetchType.EAGER)
+//    @JoinTable(name = "users_games",
+//    joinColumns = @JoinColumn(name = "userId", referencedColumnName = "id"),
+//    inverseJoinColumns = @JoinColumn(name = "gameId", referencedColumnName = "id"))
+//	private List<Game> games;
 	
 	private boolean enabled;
 	
 	public User() {
-		this.games = new ArrayList<>();
+//		this.games = new ArrayList<>();
 	}
 
 	public Long getId() {
@@ -101,13 +101,13 @@ public class User implements Serializable, UserDetails {
 		this.role = role;
 	}
 
-	public List<Game> getGames() {
-		return games;
-	}
-
-	public void setGames(List<Game> games) {
-		this.games = games;
-	}
+//	public List<Game> getGames() {
+//		return games;
+//	}
+//
+//	public void setGames(List<Game> games) {
+//		this.games = games;
+//	}
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {

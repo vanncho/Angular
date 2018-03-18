@@ -31,9 +31,11 @@ public class UserSecurityServiceImpl implements UserSecurityService {
 			List<SimpleGrantedAuthority> authList = new ArrayList<SimpleGrantedAuthority>();
 			authList.add(new SimpleGrantedAuthority("ROLE_USER"));
 
-			org.springframework.security.core.userdetails.User builtForAuthentication = new org.springframework.security.core.userdetails.User(
-					user.getUsername(), user.getPassword(), user.isEnabled(), true, true, true, authList);
-			return builtForAuthentication;
+//			org.springframework.security.core.userdetails.User builtForAuthentication = new org.springframework.security.core.userdetails.User(
+//					user.getUsername(), user.getPassword(), user.isEnabled(), true, true, true, authList);
+			return new ExtendedUser(user.getUsername(), user.getPassword(), user.isEnabled(), true, true, true, authList, user.getId());
+			
+//			return builtForAuthentication;
 		} else {
 			// logger.error("User not found.");
 			throw new UsernameNotFoundException("User not found.");

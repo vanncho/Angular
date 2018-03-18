@@ -12,6 +12,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.main.gamestore.models.Response;
+import com.main.gamestore.models.view.UserViewModel;
 
 /**
  * Utility class for Spring Security.
@@ -66,6 +67,16 @@ public final class SecurityUtils {
     	response.setContentType("application/json;charset=UTF-8");
         PrintWriter writer = response.getWriter();
         writer.write(mapper.writeValueAsString(object));
+        response.setStatus(status);
+        writer.flush();
+        writer.close();
+    }
+    
+    public static void sendResponse(HttpServletResponse response, int status, UserViewModel user) throws IOException {
+        
+    	response.setContentType("application/json;charset=UTF-8");
+        PrintWriter writer = response.getWriter();
+        writer.write(mapper.writeValueAsString(user));
         response.setStatus(status);
         writer.flush();
         writer.close();

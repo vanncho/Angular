@@ -23,7 +23,8 @@ export class GameService {
 //    this.url = this.authUtil.kinveyBaseUrl + this.authUtil.appKey + this.collectionName;
 
 //    return this.httpClientService.get(this.url, this.authUtil.headersKinvey());
-    return this.httpClientService.get('/api/', this.authUtil.headersBasic());
+    console.log('HttpErrorResponse in game.service.ts - 26');
+    return this.httpClientService.get('/api', this.authUtil.headersBasic());
   }
   
 //   getAllGames(): Observable<Object> {

@@ -42,7 +42,7 @@ export class AuthenticationService {
 
  login(loginModel: LoginModel) {
 
-    return this.httpClientService.post("/api/login", JSON.stringify(loginModel), this.authUtil.headersBasic());
+    return this.httpClientService.post('/api/login', JSON.stringify(loginModel), this.authUtil.headersBasic());
   }
   
 //  register(registerModel: RegisterModel): Observable<Object> {
@@ -54,7 +54,7 @@ export class AuthenticationService {
   
   register(registerModel: RegisterModel): Observable<Object> {
     
-    return this.httpClientService.post("/api/register", JSON.stringify(registerModel), this.authUtil.headersBasic());
+    return this.httpClientService.post('/api/register', JSON.stringify(registerModel), this.authUtil.headersBasic());
   }
 
 //  logout() {
@@ -68,22 +68,20 @@ export class AuthenticationService {
 
   logout() {
 
-    return this.httpClientService.post("/api/logout", '', this.authUtil.headersBasic());
+    return this.httpClientService.post('/api/logout', '', this.authUtil.headersBasic());
   }
   
   isLoggedIn(): boolean {
 
-//    const localStorageAuthtoken: string = localStorage.getItem('authtoken');
-//    const cookieAuthtoken = this.getCookie('authtoken');
-//
-//    return localStorageAuthtoken === cookieAuthtoken;
-    console.log("isLoggedIn: " + this.isLogged);
-      return this.isLogged;
+    const localStorageAuthtoken: string = localStorage.getItem('authtoken');
+    const cookieAuthtoken = this.getCookie('authtoken');
+
+    return localStorageAuthtoken === cookieAuthtoken;
   }
 
   setLoginStatus() {
     
-    return this.httpClientService.get("/api/isAuthenticated", this.authUtil.headersEmpty());
+    return this.httpClientService.get('/api/isAuthenticated', this.authUtil.headersEmpty());
 
   }
   

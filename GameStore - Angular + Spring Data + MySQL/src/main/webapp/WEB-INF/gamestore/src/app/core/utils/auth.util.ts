@@ -65,18 +65,17 @@ export class AuthUtil {
 
   getAuthHeaders(type: string): HttpHeaders {
 
-    if (type === 'Basic') {
-
-      return new HttpHeaders({
-//        'Authorization': `Basic ${btoa(`${this._appKey}:${this._appSecret}`)}`,
-        'Content-Type': 'application/json'
-      });
-    } else {
-      return new HttpHeaders({
-        'Authorization': `Kinvey ${localStorage.getItem('authtoken')}`,
-        'Content-Type': 'application/json'
-      });
+    let headersObject = {};
+   
+    headersObject['Content-Type'] = 'application/json';
+    let token = localStorage.getItem('authtoken');
+    
+    if (token) {
+      headersObject['Authorization'] = 'Bearer ' + token;
     }
+
+    return new HttpHeaders(headersObject);
+
   }
 
 }

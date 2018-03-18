@@ -40,15 +40,12 @@ export class LoginComponent implements OnInit, OnDestroy {
 
       this.subscription = this.authentication.login(this.model).subscribe(data => {
 
-          this.authentication.setLoginStatus().subscribe(isLogged => {
-          
-            console.log("login: " + isLogged);
-          });
+          console.log(data);
+        
           this.successfulLogin(data);
           this.toastr.success('You have login successfully.');
         
-        }
-      );
+      });
     } else {
       this.invalidUsername = true;
       this.invalidPassword = true;
@@ -56,11 +53,11 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   successfulLogin(data): void {
-console.log(data)
-//    this._cookieService.put('authtoken', 'authtoken');
+
+    this._cookieService.put('authtoken', data.token);
     this._cookieService.put('userrole', data['role']);
     this._cookieService.put('userid', data['id']);
-//    localStorage.setItem('authtoken', 'authtoken');
+    localStorage.setItem('authtoken', data.token);
     localStorage.setItem('username', data['username']);
     this.loginFail = false;
     this.router.navigate(['/home']);

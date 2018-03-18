@@ -1,7 +1,7 @@
 package com.main.gamestore.controllers;
 
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,7 +13,7 @@ import com.main.gamestore.models.Game;
 @RequestMapping("/api")
 public class TestRestController {
 
-	@GetMapping("/")
+	@RequestMapping(value = "/", method = RequestMethod.GET, headers="Accept=application/json")
 	public @ResponseBody String getJSON() {
 
 		Game game = new Game();

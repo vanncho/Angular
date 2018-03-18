@@ -21,13 +21,13 @@ import com.google.gson.Gson;
 
 @Component
 public class JSONUsernamePasswordAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
-
+	
     @Override
 	@Autowired
 	public void setAuthenticationManager(AuthenticationManager authenticationManager) {
 		super.setAuthenticationManager(authenticationManager);
-	}
-	
+	} 
+    
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response){
     	
@@ -77,4 +77,5 @@ public class JSONUsernamePasswordAuthenticationFilter extends UsernamePasswordAu
 
         return loginRequest;
     }
+    
 }

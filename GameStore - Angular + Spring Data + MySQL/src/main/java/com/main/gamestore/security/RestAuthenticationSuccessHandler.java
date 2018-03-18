@@ -1,7 +1,6 @@
 package com.main.gamestore.security;
 
 import java.io.IOException;
-import java.util.Collection;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -9,29 +8,58 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.osgi.service.component.annotations.Component;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
 
-import com.main.gamestore.enumerations.UserRole;
+import com.main.gamestore.models.view.UserViewModel;
+import com.main.gamestore.security.jwt.JWTConfigurer;
+import com.main.gamestore.security.jwt.JWTToken;
+import com.main.gamestore.security.jwt.TokenProvider;
+import com.main.gamestore.services.user.ExtendedUser;
 
 @Component
 public class RestAuthenticationSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
 
+	private TokenProvider tokenProvider;
+
+	public RestAuthenticationSuccessHandler() {
+		this.tokenProvider = new TokenProvider();
+	}
+	
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws ServletException, IOException {
         		
-    	User user = (User) authentication.getPrincipal();
-    	com.main.gamestore.models.User sendUser = new com.main.gamestore.models.User();
-    	sendUser.setUsername(user.getUsername());
+        String generatedToken = generateJWTToken(response, authentication);
+    	
+    	UserViewModel userToSend = new UserViewModel();
+    	
+    	ExtendedUser springSecurityUser = null;
+        String userName = null;
 
-    	Collection<GrantedAuthority> arr = user.getAuthorities();
-    	GrantedAuthority authority = arr.iterator().next();
-    	String role = authority.getAuthority().substring(5);
+        if(authentication != null) {
+        	
+            if (authentication.getPrincipal() instanceof UserDetails) {
+            	
+                springSecurityUser = (ExtendedUser) authentication.getPrincipal();
 
-    	sendUser.setRole(UserRole.valueOf(role));
-    	System.err.println("REST");
-        SecurityUtils.sendResponse(response, HttpServletResponse.SC_OK, sendUser);
+                userToSend.setId(springSecurityUser.getId());
+                userToSend.setUsername(springSecurityUser.getUsername());
+                userToSend.setToken(generatedToken);
+                
+            } else if (authentication.getPrincipal() instanceof String) {
+                userName = (String) authentication.getPrincipal();
+            }
+        }
+        
+    	SecurityUtils.sendResponse(response, HttpServletResponse.SC_OK, userToSend);
+    }
+    
+    private String generateJWTToken(HttpServletResponse response, Authentication authentication) {
+        
+        String jwt = tokenProvider.createToken(authentication, false);
+        response.addHeader(JWTConfigurer.AUTHORIZATION_HEADER, "Bearer " + jwt);
+
+        return new JWTToken(jwt).getAuthToken();
     }
 
 }
