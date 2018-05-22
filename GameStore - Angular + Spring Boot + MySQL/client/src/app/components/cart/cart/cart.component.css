@@ -1,0 +1,24 @@
+.img-thumbnail {
+  height: 150px;
+  width: 250px;
+}
+
+.btn-lg {
+  float: left;
+  margin-top: 60px;
+  padding-top: 10px;
+  border-color: lightcoral;
+}
+
+.right {
+  float: right;
+  padding-top: 20px;
+}
+
+.media {
+  display: inline-block;
+}
+
+.mr-auto{
+  margin-top: 45px;
+}
