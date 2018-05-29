@@ -4,15 +4,7 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "carts")
@@ -21,13 +13,15 @@ public class Cart implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
+	@OneToOne(optional = false)
+	@JoinColumn(name = "user_id", referencedColumnName = "id")
 	private User user;
 	
 	@ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "games_carts",
-    joinColumns = @JoinColumn(name = "userId", referencedColumnName = "id"),
-    inverseJoinColumns = @JoinColumn(name = "gameId", referencedColumnName = "id"))
+    joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
+    inverseJoinColumns = @JoinColumn(name = "game_id", referencedColumnName = "id"))
 	private Set<Game> games;
 	
 	public Cart() {

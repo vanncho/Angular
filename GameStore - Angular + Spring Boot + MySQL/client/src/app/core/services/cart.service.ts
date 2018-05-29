@@ -16,29 +16,27 @@ export class CartService {
 
   addGameToCart(cartObject): Observable<Object> {
 
-    this.url = this.authUtil.kinveyBaseUrl + this.authUtil.appKey + this.collectionName;
-
-    return this.httpClientService.post(this.url, JSON.stringify(cartObject), this.authUtil.headersKinvey());
+    return this.httpClientService.post('api/addcart/', JSON.stringify(cartObject), this.authUtil.headersBasic());
   }
 
   getAllGamesInCart(userId): Observable<Object> {
 
-    this.url = this.authUtil.kinveyBaseUrl + this.authUtil.appKey + this.collectionName + `?query={"user":"${userId}"}`;
+    this.url = 'api/usercart/' + userId;
 
-    return this.httpClientService.get(this.url, this.authUtil.headersKinvey());
+    return this.httpClientService.get(this.url, this.authUtil.headersBasic());
   }
 
   deleteGameFromCart(cartId): Observable<Object> {
 
-    this.url = this.authUtil.kinveyBaseUrl + this.authUtil.appKey + this.collectionName + '/' + cartId;
+    // this.url = this.authUtil.kinveyBaseUrl + this.authUtil.appKey + this.collectionName + '/' + cartId;
 
-    return this.httpClientService.delete(this.url, this.authUtil.headersKinvey());
+    return this.httpClientService.delete(this.url, this.authUtil.headersBasic());
   }
 
   deleteByGameId(gameId): Observable<Object> {
 
-    this.url = this.authUtil.kinveyBaseUrl + this.authUtil.appKey + this.collectionName + `?query={"game":"${gameId}"}`;
+    // this.url = this.authUtil.kinveyBaseUrl + this.authUtil.appKey + this.collectionName + `?query={"game":"${gameId}"}`;
 
-    return this.httpClientService.delete(this.url, this.authUtil.headersKinvey());
+    return this.httpClientService.delete(this.url, this.authUtil.headersBasic());
   }
 }

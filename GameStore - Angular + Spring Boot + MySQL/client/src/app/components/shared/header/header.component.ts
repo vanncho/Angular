@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthenticationService} from '../../../core/services/auth.service';
-import {CookieService} from 'angular2-cookie/core';
+import {CookieManagerService} from '../../../core/services/cookie-manager.service';
 
 @Component({
   selector: 'app-header',
@@ -12,7 +12,7 @@ export class HeaderComponent implements OnInit {
   public admin: boolean;
 
   constructor(private authenticationService: AuthenticationService,
-              private _cookieService: CookieService) {
+              private cookieService: CookieManagerService) {
   }
 
   ngOnInit(): void {
@@ -25,7 +25,7 @@ export class HeaderComponent implements OnInit {
 
   isAdmin() {
 
-    const role = this._cookieService.get('userrole');
+    const role = this.cookieService.get('userrole');
 
     if (role === 'admin') {
       this.admin = true;

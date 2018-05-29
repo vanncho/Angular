@@ -9,13 +9,11 @@ import { HttpClient } from '@angular/common/http';
 @Injectable()
 export class GameService {
 
-  private collectionName: string;
   private url: string;
 
   constructor(private authUtil: AuthUtil,
               private httpClientService: HttpClientService,
               private httpClient: HttpClient) {
-    this.collectionName = '/games';
   }
 
   getAllGames(): Observable<Object> {
@@ -32,22 +30,20 @@ export class GameService {
 
   editGame(gameId, gameObject): Observable<Object> {
 
-    this.url = this.authUtil.kinveyBaseUrl + this.authUtil.appKey + this.collectionName + '/' + gameId;
+    this.url = 'api/edit/' + gameId;
 
-    return this.httpClientService.put(this.url, JSON.stringify(gameObject), this.authUtil.headersKinvey());
+    return this.httpClientService.put(this.url, JSON.stringify(gameObject), this.authUtil.headersBasic());
   }
 
   addGame(gameObject): Observable<Object> {
 
-    this.url = this.authUtil.kinveyBaseUrl + this.authUtil.appKey + this.collectionName;
-
-    return this.httpClientService.post(this.url, JSON.stringify(gameObject), this.authUtil.headersKinvey());
+    return this.httpClientService.post('api/add', JSON.stringify(gameObject), this.authUtil.headersBasic());
   }
 
   deleteGame(gameId): Observable<Object> {
 
-    this.url = this.authUtil.kinveyBaseUrl + this.authUtil.appKey + this.collectionName + '/' + gameId;
+    this.url = 'api/delete/' + gameId;
 
-    return this.httpClientService.delete(this.url, this.authUtil.headersKinvey());
+    return this.httpClientService.delete(this.url, this.authUtil.headersBasic());
   }
 }

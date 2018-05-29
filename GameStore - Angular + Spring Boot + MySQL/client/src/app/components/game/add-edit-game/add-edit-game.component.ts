@@ -1,6 +1,6 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewContainerRef} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {ToastrService} from 'ngx-toastr';
+import {ToastsManager} from 'ng2-toastr/ng2-toastr';
 import {ISubscription} from 'rxjs/Subscription';
 
 import 'rxjs/add/operator/filter';
@@ -25,10 +25,11 @@ export class AddEditGameComponent implements OnInit, OnDestroy {
   public game: AddEditModel;
 
   constructor(private router: Router,
-              private toastr: ToastrService,
+              private toastr: ToastsManager, vcr: ViewContainerRef, 
               private route: ActivatedRoute,
               private gameService: GameService) {
     this.game = new AddEditModel('', '', '', 0, 0, '', '');
+    this.toastr.setRootViewContainerRef(vcr);
   }
 
   ngOnInit(): void {
@@ -60,7 +61,10 @@ export class AddEditGameComponent implements OnInit, OnDestroy {
       this.subscriptionEditGame = this.gameService.editGame(this.currGameId, this.game).subscribe(data => {
 
           this.toastr.success('Edited successfully!', this.game.title);
-          this.router.navigate([prevUrl]);
+          setTimeout(() => {
+            this.router.navigate([prevUrl]);
+          }, 1200);
+
         }
       );
     } else {
@@ -68,7 +72,10 @@ export class AddEditGameComponent implements OnInit, OnDestroy {
       this.subscriptionAddGame = this.gameService.addGame(this.game).subscribe(data => {
 
           this.toastr.success('Added successfully!', this.game.title);
-          this.router.navigate([prevUrl]);
+          setTimeout(() => {
+            this.router.navigate([prevUrl]);
+          }, 1200);
+
         }
       );
     }

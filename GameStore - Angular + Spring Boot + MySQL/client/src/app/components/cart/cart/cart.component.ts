@@ -1,11 +1,11 @@
-import {Component, OnChanges, OnDestroy, OnInit} from '@angular/core';
-import {CookieService} from 'angular2-cookie/core';
-import {ToastrService} from 'ngx-toastr';
+import {Component, OnChanges, OnDestroy, OnInit, ViewContainerRef} from '@angular/core';
+import {ToastsManager} from 'ng2-toastr/ng2-toastr';
 import {ISubscription} from 'rxjs/Subscription';
 
 import {CartService} from '../../../core/services/cart.service';
 import {GameService} from '../../../core/services/game.service';
 import {MyGamesService} from '../../../core/services/mygames.service';
+import {CookieManagerService} from '../../../core/services/cookie-manager.service';
 
 @Component({
   selector: 'app-cart',
@@ -26,14 +26,14 @@ export class CartComponent implements OnInit, OnChanges, OnDestroy {
   constructor(private cartService: CartService,
               private gameService: GameService,
               private mygamesService: MyGamesService,
-              private _cookieService: CookieService,
-              private toastr: ToastrService) {
+              private cookieService: CookieManagerService,
+              private toastr: ToastsManager, vcr: ViewContainerRef) {
     this.totalSum = 0;
   }
 
   ngOnInit(): void {
 
-    const userId = this._cookieService.get('userid');
+    const userId = this.cookieService.get('userid');
     let cartObj;
     const myCartData = [];
 
@@ -81,7 +81,7 @@ export class CartComponent implements OnInit, OnChanges, OnDestroy {
 
   makeOrder(): void {
 
-    const userId = this._cookieService.get('userid');
+    const userId = this.cookieService.get('userid');
 
     for (const cartItem of this.cartData) {
 

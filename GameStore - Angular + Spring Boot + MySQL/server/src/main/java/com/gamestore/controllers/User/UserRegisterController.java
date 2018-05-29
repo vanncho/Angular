@@ -32,8 +32,6 @@ public class UserRegisterController {
 
         UserViewModel registeredUser = this.userService.register(userRegisterModel);
 
-        System.err.println("UserRegisterController");
-
         try {
             String jwtToken = tokenGenerator.generateJWTToken(userRegisterModel.getUsername(), userRegisterModel.getPassword(), response, null);
             registeredUser.setToken(jwtToken);

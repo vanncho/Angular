@@ -1,12 +1,12 @@
 import {Injectable} from '@angular/core';
 import {CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router, Route, CanLoad} from '@angular/router';
 import {Observable} from 'rxjs/Observable';
-import {CookieService} from 'angular2-cookie/core';
+import {CookieManagerService} from '../../../core/services/cookie-manager.service';
 
 @Injectable()
 export class AdminGuard implements CanActivate, CanLoad {
 
-  constructor(private _cookieService: CookieService,
+  constructor(private cookieService: CookieManagerService,
               private router: Router) {
 
   }
@@ -23,7 +23,7 @@ export class AdminGuard implements CanActivate, CanLoad {
 
   checkUserIsAdmin(url: string): boolean {
 
-    if (this._cookieService.get('userrole') === 'admin') {
+    if (this.cookieService.get('userrole') === 'admin') {
       return true;
     }
 

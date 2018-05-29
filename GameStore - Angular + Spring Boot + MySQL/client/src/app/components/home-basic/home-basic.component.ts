@@ -1,12 +1,12 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {CookieService} from 'angular2-cookie/core';
-import {ToastrService} from 'ngx-toastr';
+import {Component, OnDestroy, OnInit, ViewContainerRef} from '@angular/core';
+import {ToastsManager} from 'ng2-toastr/ng2-toastr';
 import {ISubscription} from 'rxjs/Subscription';
 
 import {GameService} from '../../core/services/game.service';
 import {CartService} from '../../core/services/cart.service';
 import {MyGamesService} from '../../core/services/mygames.service';
 import {AuthUtil} from '../../core/utils/auth.util';
+import {CookieManagerService} from '../../core/services/cookie-manager.service';
 
 @Component({
   selector: 'app-home-basic',
@@ -22,30 +22,31 @@ export class HomeBasicComponent implements OnInit, OnDestroy {
   public admin: boolean;
   public games: any;
 
-  constructor(private _cookieService: CookieService,
+  constructor(private cookieService: CookieManagerService,
               private mygamesService: MyGamesService,
               private gameService: GameService,
               private cartService: CartService,
-              private toastr: ToastrService,
+              private toastr: ToastsManager, vcr: ViewContainerRef, 
               private authUtil: AuthUtil) {
+      this.toastr.setRootViewContainerRef(vcr);
   }
 
 
   ngOnInit(): void {
 
-//    this.admin = this.authUtil.isAdmin();
+    this.admin = this.authUtil.isAdmin();
     this.getAllGames();
   }
 
   addToCard(gameId, gameTitle): void {
 
-//    const userId = this._cookieService.get('userid');
-//
-//    this.subscriptionAddGameToCart = this.cartService.addGameToCart({user: userId, game: gameId}).subscribe(data => {
-//
-//        this.toastr.success('Added to your cart!', gameTitle);
-//      }
-//    );
+   const userId = this.cookieService.get('userid');
+
+   this.subscriptionAddGameToCart = this.cartService.addGameToCart({userId: userId, gameId: gameId}).subscribe(() => {
+
+       this.toastr.success('Added to your cart!', gameTitle);
+     }
+   );
   }
 
    getAllGames(): void {
@@ -79,6 +80,11 @@ export class HomeBasicComponent implements OnInit, OnDestroy {
 //        this.games = currentGames;
 //      }
 //    );
+  }
+
+  isAutenticated(): boolean {
+
+    return this.cookieService.get('authtoken') !== undefined;
   }
 
   ngOnDestroy(): void {

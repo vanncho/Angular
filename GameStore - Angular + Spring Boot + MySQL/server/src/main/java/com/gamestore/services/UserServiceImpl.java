@@ -1,10 +1,12 @@
 package com.gamestore.services;
 
+import com.gamestore.entities.Cart;
 import com.gamestore.entities.Role;
 import com.gamestore.entities.User;
 import com.gamestore.exceptions.UserNotFoundException;
 import com.gamestore.models.User.binding.UserRegisterModel;
 import com.gamestore.models.User.view.UserViewModel;
+import com.gamestore.repositories.CartRepository;
 import com.gamestore.repositories.RoleRepository;
 import com.gamestore.repositories.UserRepository;
 import com.gamestore.services.interfaces.UserService;
@@ -21,12 +23,14 @@ public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
+    private final CartRepository cartRepository;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Autowired
-    public UserServiceImpl(UserRepository userRepository, RoleRepository roleRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
+    public UserServiceImpl(UserRepository userRepository, RoleRepository roleRepository, CartRepository cartRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
+        this.cartRepository = cartRepository;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
@@ -67,6 +71,11 @@ public class UserServiceImpl implements UserService {
         UserViewModel userViewModel = new UserViewModel();
         userViewModel.setId(savedUser.getId());
         userViewModel.setEmail(savedUser.getEmail());
+
+        Cart userCart = new Cart();
+        userCart.setUser(savedUser);
+
+        cartRepository.save(userCart);
 
         return userViewModel;
     }

@@ -2,7 +2,9 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {catchError} from 'rxjs/operators';
 import {Observable} from 'rxjs/Observable';
-import {ToastrService} from 'ngx-toastr';
+import {ToastsManager} from 'ng2-toastr/ng2-toastr';
+
+import {CookieManagerService} from '../../core/services/cookie-manager.service';
 
 import 'rxjs/add/observable/throw';
 
@@ -10,7 +12,8 @@ import 'rxjs/add/observable/throw';
 export class HttpClientService {
 
   constructor(private http: HttpClient,
-              private toastr: ToastrService) {
+              private toastr: ToastsManager,
+              private cookieService: CookieManagerService) {
   }
 
   public get<T>(url: string, headers: object) {
@@ -53,11 +56,12 @@ export class HttpClientService {
 
   private handleError(err: any) {
 
-    err = err.error.description ? err.error.description : err;
+    this.toastr.error(err.status + ' : ' + err.statusText);
 
-//    this.toastr.error(err);
-    console.log(err);
+    if (err.status === 401) {
+      this.cookieService.removeLoginData();
+    }
 
-    return Observable.throw(new Error(err));
+    return Observable.throw(new Error(err.status + ' : ' + err.statusText));
   }
 }

@@ -48,12 +48,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/api/login").permitAll()
                 .antMatchers("/api/allGames").permitAll()
                 .antMatchers("/api/details/{id}").permitAll()
-//                .antMatchers("/api/chat/invitation").permitAll()
+                .antMatchers("api/add").permitAll() // TODO: ADD RESTRICTIONS FOR ADMIN ONLY
+                .antMatchers("api/edit/{id}").permitAll()
+                .antMatchers("api/usercart/{id}").permitAll()
 //                .antMatchers("/api/users/people").permitAll()
                 .antMatchers("/api/logout").permitAll()
 //                .antMatchers("/api/notification").permitAll()
 //                .antMatchers("/api/chat/getChat/{chatId}").permitAll()
-                .antMatchers("/**").permitAll()
+//                .antMatchers("/**").permitAll()
                 .and().apply(securityConfigurerAdapter());
     }
 

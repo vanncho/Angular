@@ -10,7 +10,7 @@ public class GameListModel {
     private String thumbnail;
     private Double price;
     private Double size;
-    private GregorianCalendar date;
+    private String date;
 
     public Long getId() {
         return id;
@@ -60,11 +60,11 @@ public class GameListModel {
         this.size = size;
     }
 
-    public GregorianCalendar getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(GregorianCalendar date) {
+    public void setDate(String date) {
         this.date = date;
     }
 }

@@ -1,10 +1,10 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewContainerRef} from '@angular/core';
 import {Router} from '@angular/router';
-import {CookieService} from 'angular2-cookie/core';
-import {ToastrService} from 'ngx-toastr';
+import {ToastsManager} from 'ng2-toastr/ng2-toastr';
 import {ISubscription} from 'rxjs/Subscription';
 
 import {AuthenticationService} from '../../../core/services/auth.service';
+import {CookieManagerService} from '../../../core/services/cookie-manager.service';
 
 @Component({
   selector: 'app-logout',
@@ -16,22 +16,24 @@ export class LogoutComponent implements OnInit, OnDestroy {
   private subscription: ISubscription;
 
   constructor(private authenticationService: AuthenticationService,
-              private _cookieService: CookieService,
-              private toastr: ToastrService,
+              private cookieService: CookieManagerService,
+              private toastr: ToastsManager, vcr: ViewContainerRef,
               private router: Router) {
+    this.toastr.setRootViewContainerRef(vcr);
   }
 
   ngOnInit(): void {
 
     this.subscription = this.authenticationService.logout().subscribe(data => {
 
-        this.authenticationService.setLoginStatus();
-        localStorage.clear();
-        this._cookieService.removeAll();
+        this.cookieService.removeLoginData();
+        
         this.toastr.success('You have logout successfully.');
-        this.router.navigate(['/login']);
-      },
-      err => {
+        setTimeout(() => {
+          this.router.navigate(['/login']);
+        }, 1200);
+
+      }, err => {
         this.toastr.error(err.error.description);
       }
     );

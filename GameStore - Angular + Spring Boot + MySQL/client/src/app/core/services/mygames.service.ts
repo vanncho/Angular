@@ -16,16 +16,16 @@ export class MyGamesService {
 
   getAllGamesByUser(userId): Observable<Object> {
 
-    this.url = this.authUtil.kinveyBaseUrl + this.authUtil.appKey + this.collectionName + `?query={"user":"${userId}"}`;
+    //this.url = this.authUtil.kinveyBaseUrl + this.authUtil.appKey + this.collectionName + `?query={"user":"${userId}"}`;
 
-      return this.httpClientService.get(this.url, this.authUtil.headersKinvey());
+      return this.httpClientService.get(this.url, this.authUtil.headersBasic());
   }
 
   addToMyGames(gameObject): Observable<Object> {
 
-    this.url = this.authUtil.kinveyBaseUrl + this.authUtil.appKey + this.collectionName;
+    // this.url = this.authUtil.kinveyBaseUrl + this.authUtil.appKey + this.collectionName;
 
-    return this.httpClientService.post(this.url, JSON.stringify(gameObject), this.authUtil.headersKinvey());
+    return this.httpClientService.post(this.url, JSON.stringify(gameObject), this.authUtil.headersBasic());
   }
 
 }

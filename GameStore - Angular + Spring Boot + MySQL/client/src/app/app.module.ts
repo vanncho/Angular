@@ -10,7 +10,7 @@ import { GameModule } from './components/game/game.module';
 import { CartModule } from './components/cart/cart.module';
 import { AppRoutesModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ToastrModule } from 'ngx-toastr';
+import { ToastModule } from 'ng2-toastr/ng2-toastr';
 
 // Routes
 import { RouterModule } from '@angular/router';
@@ -24,6 +24,7 @@ import { CartService } from './core/services/cart.service';
 import { MyGamesService } from './core/services/mygames.service';
 import { HttpClientService } from './core/services/http-client.service';
 import { CookieService } from 'angular2-cookie/core';
+import { CookieManagerService } from './core/services/cookie-manager.service';
 import { TruncatePipe } from './core/pipes/truncate.pipe';
 
 // Utils
@@ -43,7 +44,7 @@ import { AuthUtil } from './core/utils/auth.util';
     CartModule,
     AppRoutesModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot(),
+    ToastModule.forRoot(),
   ],
   exports: [RouterModule],
   providers: [
@@ -54,6 +55,7 @@ import { AuthUtil } from './core/utils/auth.util';
     MyGamesService,
     HttpClientService,
     CookieService,
+    CookieManagerService,
     AuthUtil
   ],
   bootstrap: [AppComponent]

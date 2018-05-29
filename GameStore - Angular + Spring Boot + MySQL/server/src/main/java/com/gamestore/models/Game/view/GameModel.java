@@ -11,7 +11,7 @@ public class GameModel {
     private Double price;
     private Double size;
     private String video;
-    private GregorianCalendar date;
+    private String date;
 
     public Long getId() {
         return id;
@@ -69,11 +69,11 @@ public class GameModel {
         this.video = video;
     }
 
-    public GregorianCalendar getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(GregorianCalendar date) {
+    public void setDate(String date) {
         this.date = date;
     }
 }

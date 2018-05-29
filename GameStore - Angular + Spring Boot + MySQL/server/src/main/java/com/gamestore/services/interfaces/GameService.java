@@ -1,5 +1,6 @@
 package com.gamestore.services.interfaces;
 
+import com.gamestore.models.Game.binding.AddEditGameModel;
 import com.gamestore.models.Game.view.GameListModel;
 import com.gamestore.models.Game.view.GameModel;
 
@@ -10,4 +11,10 @@ public interface GameService {
     List<GameListModel> getAllGames();
 
     GameModel getGameById(Long gameId);
+
+    boolean addGame(AddEditGameModel gameModel);
+
+    boolean deleteGameById(Long gameId);
+
+    boolean editGameById(AddEditGameModel editGameModel, Long gameId);
 }

@@ -1,5 +1,6 @@
 package com.gamestore.controllers.Game;
 
+import com.gamestore.models.Game.binding.AddEditGameModel;
 import com.gamestore.models.Game.view.GameListModel;
 import com.gamestore.models.Game.view.GameModel;
 import com.gamestore.services.interfaces.GameService;
@@ -31,10 +32,46 @@ public class GameController {
     }
 
     @GetMapping("/details/{id}")
-    public ResponseEntity<GameModel> listAllGames(@PathVariable(name = "id") Long gameId) {
+    public ResponseEntity<GameModel> getGameById(@PathVariable(name = "id") Long gameId) {
 
         GameModel game = gameService.getGameById(gameId);
 
         return new ResponseEntity<>(game, HttpStatus.OK);
+    }
+
+    @PostMapping("/add")
+    public ResponseEntity addGame(@RequestBody AddEditGameModel gameModel) {
+
+        boolean isSaved = gameService.addGame(gameModel);
+
+        if (isSaved) {
+            return new ResponseEntity(HttpStatus.OK);
+        } else {
+            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @PutMapping("/edit/{id}")
+    public ResponseEntity editGame(@RequestBody AddEditGameModel editGameModel, @PathVariable(name = "id") Long gameId) {
+
+        boolean isEdited = gameService.editGameById(editGameModel, gameId);
+
+        if (isEdited) {
+            return new ResponseEntity(HttpStatus.OK);
+        } else {
+            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity deleteGame(@PathVariable(name = "id") Long gameId) {
+
+        boolean isDeleted = gameService.deleteGameById(gameId);
+
+        if (isDeleted) {
+            return new ResponseEntity(HttpStatus.OK);
+        } else {
+            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 }
