@@ -1,6 +1,6 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewContainerRef} from '@angular/core';
 import {CookieService} from 'angular2-cookie/core';
-import {ToastrService} from 'ngx-toastr';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 import {ISubscription} from 'rxjs/Subscription';
 
 import {GameService} from '../../core/services/game.service';
@@ -26,8 +26,9 @@ export class HomeBasicComponent implements OnInit, OnDestroy {
               private mygamesService: MyGamesService,
               private gameService: GameService,
               private cartService: CartService,
-              private toastr: ToastrService,
-              private authUtil: AuthUtil) {
+              private authUtil: AuthUtil,
+              private toastr: ToastsManager, private vcr: ViewContainerRef) {
+    this.toastr.setRootViewContainerRef(vcr);
   }
 
 

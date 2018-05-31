@@ -1,23 +1,24 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { sharedComponents } from './index';
-import {AuthenticationService} from '../../core/services/auth.service';
+import { homeComponents } from './index';
+
+import { TruncatePipe } from '../../core/pipes/truncate.pipe';
 
 @NgModule({
   declarations: [
-    ...sharedComponents,
+    TruncatePipe,
+    ...homeComponents,
   ],
   imports: [
     CommonModule,
     RouterModule
   ],
   exports: [
-    ...sharedComponents
+    ...homeComponents
   ],
   providers: [
-    AuthenticationService
     ]
 })
 
-export class SharedModule { }
+export class HomeModule { }

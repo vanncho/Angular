@@ -1,7 +1,7 @@
-import {Component, OnInit, OnDestroy} from '@angular/core';
+import {Component, OnInit, OnDestroy, ViewContainerRef} from '@angular/core';
 import {CookieService} from 'angular2-cookie/core';
 import {Router} from '@angular/router';
-import {ToastrService} from 'ngx-toastr';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 import {ISubscription} from 'rxjs/Subscription';
 
 import {LoginModel} from '../../../core/models/inputs/login.model';
@@ -23,9 +23,10 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   constructor(private authentication: AuthenticationService,
               private _cookieService: CookieService,
-              private toastr: ToastrService,
+              private toastr: ToastsManager, private vcr: ViewContainerRef,
               private router: Router) {
     this.model = new LoginModel('', '');
+    this.toastr.setRootViewContainerRef(vcr);
   }
 
   ngOnInit(): void {
@@ -42,6 +43,9 @@ export class LoginComponent implements OnInit, OnDestroy {
 
           this.successfulLogin(data);
           this.toastr.success('You have login successfully.');
+          setTimeout(() => {
+            this.router.navigate(['/home']);
+          }, 900);
         }
       );
     } else {

@@ -1,6 +1,6 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewContainerRef} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {ToastrService} from 'ngx-toastr';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 import {ISubscription} from 'rxjs/Subscription';
 
 import 'rxjs/add/operator/filter';
@@ -25,10 +25,11 @@ export class AddEditGameComponent implements OnInit, OnDestroy {
   public game: AddEditModel;
 
   constructor(private router: Router,
-              private toastr: ToastrService,
               private route: ActivatedRoute,
-              private gameService: GameService) {
+              private gameService: GameService,
+              private toastr: ToastsManager, private vcr: ViewContainerRef) {
     this.game = new AddEditModel('', '', '', 0, 0, '', '');
+    this.toastr.setRootViewContainerRef(vcr);
   }
 
   ngOnInit(): void {

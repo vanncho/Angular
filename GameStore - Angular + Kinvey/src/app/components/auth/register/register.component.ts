@@ -1,6 +1,6 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewContainerRef} from '@angular/core';
 import {Router} from '@angular/router';
-import {ToastrService} from 'ngx-toastr';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 import {ISubscription} from 'rxjs/Subscription';
 
 import {RegisterModel} from '../../../core/models/inputs/register.model';
@@ -19,9 +19,10 @@ export class RegisterComponent implements OnInit, OnDestroy {
   public registerSuccess: boolean;
 
   constructor(private authentication: AuthenticationService,
-              private toastr: ToastrService,
+              private toastr: ToastsManager, private vcr: ViewContainerRef,
               private router: Router) {
     this.model = new RegisterModel('', '', '', '', '');
+    this.toastr.setRootViewContainerRef(vcr);
   }
 
   ngOnInit(): void {

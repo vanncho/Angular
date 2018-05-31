@@ -1,6 +1,6 @@
-import {Component, OnChanges, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnChanges, OnDestroy, OnInit, ViewContainerRef} from '@angular/core';
 import {CookieService} from 'angular2-cookie/core';
-import {ToastrService} from 'ngx-toastr';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 import {ISubscription} from 'rxjs/Subscription';
 
 import {CartService} from '../../../core/services/cart.service';
@@ -27,7 +27,8 @@ export class CartComponent implements OnInit, OnChanges, OnDestroy {
               private gameService: GameService,
               private mygamesService: MyGamesService,
               private _cookieService: CookieService,
-              private toastr: ToastrService) {
+              private toastr: ToastsManager, private vcr: ViewContainerRef) {
+    this.toastr.setRootViewContainerRef(vcr);
     this.totalSum = 0;
   }
 

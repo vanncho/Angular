@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {catchError} from 'rxjs/operators';
 import {Observable} from 'rxjs/Observable';
-import {ToastrService} from 'ngx-toastr';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 import 'rxjs/add/observable/throw';
 
@@ -10,7 +10,7 @@ import 'rxjs/add/observable/throw';
 export class HttpClientService {
 
   constructor(private http: HttpClient,
-              private toastr: ToastrService) {
+              private toastr: ToastsManager) {
   }
 
   public get<T>(url: string, headers: object) {

@@ -1,32 +1,31 @@
 <main>
-  <div class="container">
-    <div class="row">
-      <div class="col-12 text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
 
-        <h1 class="display-3">{{game.title}}</h1>
-        <br/>
+                <h1 class="display-3">{{game.title}}</h1>
+                <br/>
 
-        <iframe width="560" height="315" [src]='sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/" + game.video)' frameborder="0"
-                allowfullscreen></iframe>
+                <iframe width="560" height="315" [src]='sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/" + game.video)' frameborder="0" allowfullscreen></iframe>
 
-        <br/>
-        <br/>
+                <br/>
+                <br/>
 
-        <p>{{game.description}}</p>
+                <p>{{game.description}}</p>
 
-        <p><strong>Price</strong> - {{game.price}} &euro;</p>
-        <p><strong>Size</strong> - {{game.size}} GB</p>
-        <p><strong>Release Date</strong> - {{game.date}}</p>
+                <p><strong>Price</strong> - {{game.price}} &euro;</p>
+                <p><strong>Size</strong> - {{game.size}} GB</p>
+                <p><strong>Release Date</strong> - {{game.date}}</p>
 
-        <a class="btn btn-success" href="{{prevUrl}}">Back</a>
-        <a class="btn btn-warning" href="/game/{{currGameId}}" *ngIf="admin">Edit</a>
-        <a class="btn btn-danger" href="/delete/{{currGameId}}" *ngIf="admin">Delete</a>
-        <a class="btn btn-primary" href="#">Buy</a>
+                <a class="btn btn-success" [routerLink]="[prevUrl]">Back</a>
+                <a class="btn btn-warning" [routerLink]="['/game/', currGameId]" *ngIf="admin">Edit</a>
+                <a class="btn btn-danger" [routerLink]="['/delete/', currGameId]" *ngIf="admin">Delete</a>
+                <a class="btn btn-primary" (click)="addToCard(currGameId, game.title)">Buy</a>
 
-        <br/>
-        <br/>
+                <br/>
+                <br/>
 
-      </div>
+            </div>
+        </div>
     </div>
-  </div>
 </main>

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
+import { RouterModule } from '@angular/router';
 import { gameComponents } from './index';
 
 import { CommonModule } from '@angular/common';
@@ -22,6 +22,7 @@ import { DetailsGameComponent } from './details-game/details-game.component';
   ],
   imports: [
     CommonModule,
+    RouterModule,
     FormsModule
   ],
   exports: [
