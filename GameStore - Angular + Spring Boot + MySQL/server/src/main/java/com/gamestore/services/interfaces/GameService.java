@@ -10,6 +10,8 @@ public interface GameService {
 
     List<GameListModel> getAllGames();
 
+    List<GameListModel> getAllGamesForUser(Long userId);
+
     GameModel getGameById(Long gameId);
 
     boolean addGame(AddEditGameModel gameModel);

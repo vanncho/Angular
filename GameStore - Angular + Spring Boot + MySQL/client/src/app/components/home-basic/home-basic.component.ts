@@ -1,12 +1,12 @@
-import {Component, OnDestroy, OnInit, ViewContainerRef} from '@angular/core';
-import {ToastsManager} from 'ng2-toastr/ng2-toastr';
-import {ISubscription} from 'rxjs/Subscription';
+import { Component, OnDestroy, OnInit, ViewContainerRef } from '@angular/core';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
+import { ISubscription } from 'rxjs/Subscription';
 
-import {GameService} from '../../core/services/game.service';
-import {CartService} from '../../core/services/cart.service';
-import {MyGamesService} from '../../core/services/mygames.service';
-import {AuthUtil} from '../../core/utils/auth.util';
-import {CookieManagerService} from '../../core/services/cookie-manager.service';
+import { GameService } from '../../core/services/game.service';
+import { CartService } from '../../core/services/cart.service';
+import { MyGamesService } from '../../core/services/mygames.service';
+import { AuthUtil } from '../../core/utils/auth.util';
+import { CookieManagerService } from '../../core/services/cookie-manager.service';
 
 @Component({
   selector: 'app-home-basic',
@@ -44,12 +44,30 @@ export class HomeBasicComponent implements OnInit, OnDestroy {
 
    this.subscriptionAddGameToCart = this.cartService.addGameToCart({userId: userId, gameId: gameId}).subscribe(() => {
 
-       this.toastr.success('Added to your cart!', gameTitle);
+      this.toastr.success('Added to your cart!', gameTitle);
+
+     }, error => {
+
+      if (error.status === 400) {
+        this.toastr.warning('Is already in your cart!', gameTitle);
+      }
      }
    );
   }
 
-   getAllGames(): void {
+   getAllUserGames(): void {
+
+    const userId = this.cookieService.get('userid');
+
+    this.subscriptionGetAllGames = this.gameService.getAllUserGames(userId).subscribe(data => {
+
+        this.games = data;
+        localStorage.setItem('prevUrl', '/home');
+      }
+    );
+  }
+
+  getAllGames(): void {
 
     this.subscriptionGetAllGames = this.gameService.getAllGames().subscribe(data => {
 
@@ -58,28 +76,6 @@ export class HomeBasicComponent implements OnInit, OnDestroy {
         localStorage.setItem('prevUrl', '/home');
       }
     );
-  }
-
-  getAllUserGames(): void {
-
-//    const userId = this._cookieService.get('userid');
-//
-//    this.subscriptionGetAllGamesByUser = this.mygamesService.getAllGamesByUser(userId).subscribe(data => {
-//
-//        const currentGames = [];
-//
-//        for (const myGame of Object.values(data)) {
-//
-//          this.subscriptionGetGameById = this.gameService.getGameById(myGame.game).subscribe(g => {
-//
-//              currentGames.push(g);
-//            }
-//          );
-//        }
-//
-//        this.games = currentGames;
-//      }
-//    );
   }
 
   isAutenticated(): boolean {

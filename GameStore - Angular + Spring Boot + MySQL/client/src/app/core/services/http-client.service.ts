@@ -1,10 +1,10 @@
-import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {catchError} from 'rxjs/operators';
-import {Observable} from 'rxjs/Observable';
-import {ToastsManager} from 'ng2-toastr/ng2-toastr';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { catchError } from 'rxjs/operators';
+import { Observable } from 'rxjs/Observable';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
-import {CookieManagerService} from '../../core/services/cookie-manager.service';
+import { CookieManagerService} from '../../core/services/cookie-manager.service';
 
 import 'rxjs/add/observable/throw';
 
@@ -56,12 +56,19 @@ export class HttpClientService {
 
   private handleError(err: any) {
 
-    this.toastr.error(err.status + ' : ' + err.statusText);
-
-    if (err.status === 401) {
+    if (err.status === 401 || err.status === 504) {
       this.cookieService.removeLoginData();
     }
 
-    return Observable.throw(new Error(err.status + ' : ' + err.statusText));
+    if (err.status === 400) {
+
+      return Observable.throw(err);
+
+    } else {
+
+      this.toastr.error(err.status + ' : ' + err.statusText);
+      return Observable.throw(new Error(err.status + ' : ' + err.statusText));
+    }
+
   }
 }

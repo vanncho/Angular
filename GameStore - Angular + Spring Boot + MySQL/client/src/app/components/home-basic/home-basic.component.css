@@ -1,5 +1,10 @@
 .gameImg {
-  margin-right: 20px;
-  height: 420px;
-  width: 360px;
+    margin-right: 20px;
+    height: 270px;
+    width: 360px;
+}
+
+.thumbnail,
+.form-inline {
+    margin-left: 50px;
 }

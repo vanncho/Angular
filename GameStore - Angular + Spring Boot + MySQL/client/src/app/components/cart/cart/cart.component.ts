@@ -1,11 +1,11 @@
-import {Component, OnChanges, OnDestroy, OnInit, ViewContainerRef} from '@angular/core';
-import {ToastsManager} from 'ng2-toastr/ng2-toastr';
-import {ISubscription} from 'rxjs/Subscription';
+import { Component, OnChanges, OnDestroy, OnInit, ViewContainerRef } from '@angular/core';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
+import { ISubscription } from 'rxjs/Subscription';
 
-import {CartService} from '../../../core/services/cart.service';
-import {GameService} from '../../../core/services/game.service';
-import {MyGamesService} from '../../../core/services/mygames.service';
-import {CookieManagerService} from '../../../core/services/cookie-manager.service';
+import { CartService } from '../../../core/services/cart.service';
+import { GameService } from '../../../core/services/game.service';
+import { MyGamesService } from '../../../core/services/mygames.service';
+import { CookieManagerService } from '../../../core/services/cookie-manager.service';
 
 @Component({
   selector: 'app-cart',
@@ -18,7 +18,7 @@ export class CartComponent implements OnInit, OnChanges, OnDestroy {
   private subscriptionGetGameById: ISubscription;
   private subscriptionDeleteGame: ISubscription;
   private subscriptionAddGamesToCart: ISubscription;
-  private subscriptionDeleteByGameId: ISubscription;
+  private subscriptionEmptyCard: ISubscription;
   private errorOnOrder: boolean;
   public cartData: any;
   public totalSum: number;
@@ -29,90 +29,94 @@ export class CartComponent implements OnInit, OnChanges, OnDestroy {
               private cookieService: CookieManagerService,
               private toastr: ToastsManager, vcr: ViewContainerRef) {
     this.totalSum = 0;
+    this.toastr.setRootViewContainerRef(vcr);
   }
 
   ngOnInit(): void {
 
     const userId = this.cookieService.get('userid');
     let cartObj;
-    const myCartData = [];
+    const newCartData = [];
 
-    this.subscriptionGetAllGames = this.cartService.getAllGamesInCart(userId).subscribe(data => {
+    this.subscriptionGetAllGames = this.cartService.getAllGamesInCart(userId).subscribe(games => {
 
-        for (const currData of Object.values(data)) {
+        const arrayOfGames = Object.values(games);
 
-          this.subscriptionGetGameById = this.gameService.getGameById(currData.game).subscribe(gameData => {
+        for (const game of arrayOfGames) {
 
-            cartObj = {
-              id: currData._id,
-              gameId: gameData['_id'],
-              title: gameData['title'],
-              imageUrl: gameData['thumbnail'],
-              description: gameData['description'].substring(0, 150),
-              price: gameData['price']
-            };
+          cartObj = this.fillCartData(game);
 
-            this.totalSum += cartObj.price;
-            myCartData.push(cartObj);
-          });
+          this.totalSum += cartObj.price;
+          newCartData.push(cartObj);
         }
       }
     );
 
-    this.cartData = myCartData;
+    this.cartData = newCartData;
   }
 
-  removeFromCart(cartId, gameTitle): void {
+  removeFromCart(gameId, gameTitle): void {
 
-    for (let i = this.cartData.length - 1; i >= 0; i--) {
+    const userId = this.cookieService.get('userid');
+    let cartObj;
+    let sumAfterRemove = 0;
+    const newCartData = [];
 
-      if (this.cartData[i].id === cartId) {
+    this.subscriptionDeleteGame = this.cartService.deleteGameFromCart({userId: userId, gameId: gameId}).subscribe(games => {
 
-        this.subscriptionDeleteGame = this.cartService.deleteGameFromCart(cartId).subscribe(data => {
+      const arrayOfGames = Object.values(games);
 
-            this.totalSum -= this.cartData[i].price;
-            this.cartData.splice(i, 1);
-            this.toastr.success('Removed from your cart!', gameTitle);
-          }
-        );
+      for (const game of arrayOfGames) {
+
+        cartObj = this.fillCartData(game);
+
+        sumAfterRemove += game.price;
+        newCartData.push(cartObj);
       }
-    }
+
+      this.totalSum = sumAfterRemove;
+      this.cartData = newCartData;
+      this.toastr.success('Removed from your cart!', gameTitle);
+
+    });
   }
 
   makeOrder(): void {
 
     const userId = this.cookieService.get('userid');
 
-    for (const cartItem of this.cartData) {
-
-      this.subscriptionAddGamesToCart = this.mygamesService.addToMyGames({
-        user: userId,
-        game: cartItem.gameId
-      }).subscribe(data => {
-        },
-        err => {
-          this.errorOnOrder = true;
-        }
-      );
+    let buyCardModel = {
+      userId: userId,
+      games: []
     }
 
-    for (let i = this.cartData.length - 1; i >= 0; i--) {
+    for(let card of Object.values(this.cartData)) {
 
-      this.subscriptionDeleteByGameId = this.cartService.deleteByGameId(this.cartData[i].gameId).subscribe(d => {
-        },
-        err => {
-          this.errorOnOrder = true;
-        }
-      );
+      buyCardModel.games.push(card['gameId']);
     }
 
-    if (this.errorOnOrder === undefined) {
+    console.log(buyCardModel);
+    this.subscriptionEmptyCard = this.cartService.makeOrderForUser(userId, buyCardModel).subscribe(() => {
+
+      this.totalSum = 0;
+      this.cartData = [];
       this.toastr.success('Order is successful');
-    }
+      
+    }, error => {
+    });     
+  }
 
-    this.cartData = [];
-    this.totalSum = 0;
+  private fillCartData(game): any {
 
+    let cartObj = {
+      gameId: game['id'],
+      title: game['title'],
+      imageUrl: game['thumbnail'],
+      description: game['description'].substring(0, 150),
+      price: game['price']
+    };
+
+    return cartObj;
   }
 
   ngOnChanges(): void {
@@ -136,8 +140,8 @@ export class CartComponent implements OnInit, OnChanges, OnDestroy {
       this.subscriptionAddGamesToCart.unsubscribe();
     }
 
-    if (this.subscriptionDeleteByGameId) {
-      this.subscriptionDeleteByGameId.unsubscribe();
+    if (this.subscriptionEmptyCard) {
+      this.subscriptionEmptyCard.unsubscribe();
     }
   }
 }

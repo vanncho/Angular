@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <h2 class="m-1">All Games &ndash;&nbsp;</h2>
-            <a href="/game/0" class="btn btn-warning m-1"><strong>+</strong> Add
+            <a [routerLink]="['/game/0']" class="btn btn-warning m-1"><strong>+</strong> Add
       Game</a>
             <table class="table table-striped table-hover">
                 <thead>
@@ -15,15 +15,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="table-warning" *ngFor="let game of games">
-                        <th scope="row">1</th>
+                    <tr class="table-warning" *ngFor="let game of games; let i = index">
+                        <th scope="row">{{i + 1}}</th>
                         <td>{{game.title}}</td>
                         <td>{{game.size}} GB</td>
                         <td>{{game.price}} &euro;</td>
                         <td>
-                            <a href="/game/{{game.id}}" class="btn btn-warning btn-sm">Edit</a>
-                            <a href="/delete/{{game.id}}" class="btn btn-danger btn-sm">Delete</a>
-                            <a class="btn btn-info btn-sm" name="info" href="/details/{{game.id}}">Info</a>
+                            <a [routerLink]="['/game/', game.id]" class="btn btn-warning btn-sm">Edit</a>
+                            <a [routerLink]="['/delete/', game.id]" class="btn btn-danger btn-sm">Delete</a>
+                            <a [routerLink]="['/details/', game.id]" class="btn btn-info btn-sm" name="info">Info</a>
                         </td>
                     </tr>
                 </tbody>

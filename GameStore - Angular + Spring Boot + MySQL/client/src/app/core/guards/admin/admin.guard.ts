@@ -1,7 +1,7 @@
-import {Injectable} from '@angular/core';
-import {CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router, Route, CanLoad} from '@angular/router';
-import {Observable} from 'rxjs/Observable';
-import {CookieManagerService} from '../../../core/services/cookie-manager.service';
+import { Injectable } from '@angular/core';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router, Route, CanLoad } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
+import { CookieManagerService } from '../../../core/services/cookie-manager.service';
 
 @Injectable()
 export class AdminGuard implements CanActivate, CanLoad {

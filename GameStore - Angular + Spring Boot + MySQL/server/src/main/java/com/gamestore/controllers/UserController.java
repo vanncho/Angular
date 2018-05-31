@@ -1,7 +1,8 @@
-package com.gamestore.controllers.User;
+package com.gamestore.controllers;
 
 import com.gamestore.configurations.jwt.JWTGenerator;
 import com.gamestore.models.User.binding.LoginModel;
+import com.gamestore.models.User.binding.UserRegisterModel;
 import com.gamestore.models.User.view.UserViewModel;
 import com.gamestore.services.interfaces.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,15 +22,30 @@ import java.util.Collections;
 @RestController
 @CrossOrigin
 @RequestMapping(value = "/api")
-public class UserLoginController {
+public class UserController {
 
     private final UserService userService;
     private final JWTGenerator tokenGenerator;
 
     @Autowired
-    public UserLoginController(UserService userService, JWTGenerator tokenGenerator) {
+    public UserController(UserService userService, JWTGenerator tokenGenerator) {
         this.userService = userService;
         this.tokenGenerator = tokenGenerator;
+    }
+
+    @PostMapping("/register")
+    public ResponseEntity registerUser(@RequestBody UserRegisterModel userRegisterModel, HttpServletResponse response){
+
+        UserViewModel registeredUser = this.userService.register(userRegisterModel);
+
+        try {
+            String jwtToken = tokenGenerator.generateJWTToken(userRegisterModel.getUsername(), userRegisterModel.getPassword(), response, null);
+            registeredUser.setToken(jwtToken);
+            return new ResponseEntity<>(registeredUser, HttpStatus.OK);
+
+        } catch (AuthenticationException ae) {
+            return new ResponseEntity<>(Collections.singletonMap("AuthenticationException", ae.getLocalizedMessage()), HttpStatus.UNAUTHORIZED);
+        }
     }
 
     @PostMapping("/login")

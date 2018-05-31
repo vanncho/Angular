@@ -1,56 +1,40 @@
 <main class="col-4 offset-4 text-center">
-  <div class="container">
-    <p class="error" *ngIf="invalidUsername">
-      Username is required!
-    </p>
-    <p class="error" *ngIf="invalidPassword">
-      Password is required!
-    </p>
-    <div class="row">
-      <div class="col-md-4 col-md-offset-4">
-        <div class="text-center">
-          <h1 class="display-3">Login</h1></div>
-        <br/>
-        <form (ngSubmit)="login()" #loginForm="ngForm">
-          <div class="form-group row">
-            <label for="email" class="sr-only">Username</label>
-            <input
-                class="form-control"
-                id="email"
-                pattern="^[a-zA-Z0-9]+$"
-                name="email"
-                [(ngModel)]="model.username"
-                [ngModelOptions]="{standalone: true}"
-                #username="ngModel"
-                required/>
-          </div>
-          <div [hidden]="username.valid || username.pristine" class="alert alert-danger">
-            Username must contains letters and digits.
-          </div>
-          <div class="form-group row">
-            <label for="password" class="sr-only">Password</label>
-            <input
-                type="password"
-                id="password"
-                name="password"
-                pattern="^[A-Za-z0-9]{3,}$"
-                class="form-control"
-                [(ngModel)]="model.password"
-                [ngModelOptions]="{standalone: true}"
-                #password="ngModel"
-                required/>
-          </div>
-          <div [hidden]="password.valid || password.pristine" class="alert alert-danger">
-            Password must contains letters and digits and at least 3 symbols long!
-          </div>
-          <input type="submit" class="btn btn-outline-warning btn-lg btn-block" value="Login"/>
-        </form>
-        <br/>
-        <div>
-          <span>Don't have an account? <a href="/register">Register</a></span>
+    <div class="container">
+        <p class="error" *ngIf="invalidUsername">
+            Username is required!
+        </p>
+        <p class="error" *ngIf="invalidPassword">
+            Password is required!
+        </p>
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="text-center">
+                    <h1 class="display-3">Login</h1>
+                </div>
+                <br/>
+                <form (ngSubmit)="login()" #loginForm="ngForm">
+                    <div class="form-group row">
+                        <label for="email" class="sr-only">Username</label>
+                        <input class="form-control" id="email" pattern="^[a-zA-Z0-9]+$" name="email" [(ngModel)]="model.username" [ngModelOptions]="{standalone: true}" #username="ngModel" required/>
+                    </div>
+                    <div [hidden]="username.valid || username.pristine" class="alert alert-danger">
+                        Username must contains letters and digits.
+                    </div>
+                    <div class="form-group row">
+                        <label for="password" class="sr-only">Password</label>
+                        <input type="password" id="password" name="password" pattern="^[A-Za-z0-9]{3,}$" class="form-control" [(ngModel)]="model.password" [ngModelOptions]="{standalone: true}" #password="ngModel" required/>
+                    </div>
+                    <div [hidden]="password.valid || password.pristine" class="alert alert-danger">
+                        Password must contains letters and digits and at least 3 symbols long!
+                    </div>
+                    <input type="submit" class="btn btn-outline-warning btn-lg btn-block" value="Login" />
+                </form>
+                <br/>
+                <div>
+                    <span>Don't have an account? <a [routerLink]="['/register']">Register</a></span>
+                </div>
+                <br/>
+            </div>
         </div>
-        <br/>
-      </div>
     </div>
-  </div>
 </main>

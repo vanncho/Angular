@@ -1,10 +1,12 @@
 package com.gamestore.services;
 
 import com.gamestore.entities.Game;
+import com.gamestore.entities.User;
 import com.gamestore.models.Game.binding.AddEditGameModel;
 import com.gamestore.models.Game.view.GameListModel;
 import com.gamestore.models.Game.view.GameModel;
 import com.gamestore.repositories.GameRepository;
+import com.gamestore.repositories.UserRepository;
 import com.gamestore.services.interfaces.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,35 +20,30 @@ import java.util.*;
 public class GameServiceImpl implements GameService {
 
     private final GameRepository gameRepository;
+    private final UserRepository userRepository;
 
     @Autowired
-    public GameServiceImpl(GameRepository gameRepository) {
+    public GameServiceImpl(GameRepository gameRepository, UserRepository userRepository) {
         this.gameRepository = gameRepository;
+        this.userRepository = userRepository;
     }
 
     @Override
     public List<GameListModel> getAllGames() {
 
         List<Game> games = gameRepository.findAll();
-        List<GameListModel> gamesListView = new ArrayList<>();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        List<GameListModel> gamesListView = convertSetOfGameToListOfGameModels(games);
 
-        // TODO: do i need a binding model?
-        GameListModel gameModel = null;
+        return gamesListView;
+    }
 
-        for (Game game : games) {
+    @Override
+    public List<GameListModel> getAllGamesForUser(Long userId) {
 
-            gameModel = new GameListModel();
-            gameModel.setId(game.getId());
-            gameModel.setDate(sdf.format(game.getDate().getTime()));
-            gameModel.setDescription(game.getDescription());
-            gameModel.setPrice(game.getPrice());
-            gameModel.setSize(game.getSize());
-            gameModel.setThumbnail(game.getThumbnail());
-            gameModel.setTitle(game.getTitle());
+        User user = userRepository.findOne(userId);
+        Set<Game> games = user.getGames();
 
-            gamesListView.add(gameModel);
-        }
+        List<GameListModel> gamesListView = convertSetOfGameToListOfGameModels(games);
 
         return gamesListView;
     }
@@ -112,7 +109,7 @@ public class GameServiceImpl implements GameService {
         game.setPrice(editGameModel.getPrice());
         game.setSize(editGameModel.getSize());
         game.setThumbnail(editGameModel.getThumbnail());
-        game.setTitle(editGameModel.getVideo());
+        game.setVideo(editGameModel.getVideo());
 
         GregorianCalendar date = convertStringToCalendarDate(editGameModel.getDate());
         game.setDate(date);
@@ -135,5 +132,30 @@ public class GameServiceImpl implements GameService {
         }
 
         return cal;
+    }
+
+    static List<GameListModel> convertSetOfGameToListOfGameModels(Collection<Game> userGames) {
+
+        List<GameListModel> userGamesModels = new ArrayList<>();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        GameListModel currGameModel;
+
+        for (Game userGame : userGames) {
+
+            // TODO: model mapper
+            currGameModel = new GameListModel();
+
+            currGameModel.setId(userGame.getId());
+            currGameModel.setTitle(userGame.getTitle());
+            currGameModel.setThumbnail(userGame.getThumbnail());
+            currGameModel.setSize(userGame.getSize());
+            currGameModel.setPrice(userGame.getPrice());
+            currGameModel.setDescription(userGame.getDescription());
+            currGameModel.setDate(sdf.format(userGame.getDate().getTime()));
+
+            userGamesModels.add(currGameModel);
+        }
+
+        return userGamesModels;
     }
 }

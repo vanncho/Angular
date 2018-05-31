@@ -7,8 +7,8 @@ import com.gamestore.exceptions.UserNotFoundException;
 import com.gamestore.models.User.binding.UserRegisterModel;
 import com.gamestore.models.User.view.UserViewModel;
 import com.gamestore.repositories.CartRepository;
-import com.gamestore.repositories.RoleRepository;
 import com.gamestore.repositories.UserRepository;
+import com.gamestore.services.interfaces.RoleService;
 import com.gamestore.services.interfaces.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -21,15 +21,17 @@ import java.util.Set;
 @Service
 public class UserServiceImpl implements UserService {
 
+    private static final long ADMIN_ROLE_ID = 1L;
+    private static final long USER_ROLE_ID = 2L;
     private final UserRepository userRepository;
-    private final RoleRepository roleRepository;
+    private final RoleService roleService;
     private final CartRepository cartRepository;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Autowired
-    public UserServiceImpl(UserRepository userRepository, RoleRepository roleRepository, CartRepository cartRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
+    public UserServiceImpl(UserRepository userRepository, RoleService roleService, CartRepository cartRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.userRepository = userRepository;
-        this.roleRepository = roleRepository;
+        this.roleService = roleService;
         this.cartRepository = cartRepository;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
@@ -51,7 +53,6 @@ public class UserServiceImpl implements UserService {
     public UserViewModel register(UserRegisterModel userRegisterModel) {
 
         User user = new User();
-
         String hashedPassword = bCryptPasswordEncoder.encode(userRegisterModel.getPassword());
 
         // TODO: model mapper !
@@ -64,7 +65,19 @@ public class UserServiceImpl implements UserService {
         user.setCredentialsNonExpired(true);
         user.setEnabled(true);
 
-        Role role = this.roleRepository.findOne(2L); // TODO: export to constants !
+        int totalUsersInDB = userRepository.getUsersCount();
+        Role role = null;
+
+        if (totalUsersInDB == 0) {
+
+            roleService.initialCreateRoles();
+            role = roleService.findRole(ADMIN_ROLE_ID);
+
+        } else {
+
+            role = roleService.findRole(USER_ROLE_ID);
+        }
+
         user.getAuthorities().add(role);
 
         User savedUser = userRepository.save(user);

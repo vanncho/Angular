@@ -14,9 +14,9 @@
 
                 <div class="card-group">
                     <h4 class="card-title">{{games?.size}}</h4>
-                    <div class="card col-md-4 thumbnail gameImg" *ngFor="let game of games">
+                    <div class="card col-md-3 thumbnail " *ngFor="let game of games">
 
-                        <a href="/details/{{game.id}}"><img class="card-image-top img-fluid img-thumbnail" onerror="this.src='https://i.ytimg.com/vi/BqJyluskTfM/maxresdefault.jpg';" src="{{game.thumbnail}}"></a>
+                        <a [routerLink]="['/details/', game.id]"><img class="card-image-top img-fluid img-thumbnail gameImg" onerror="this.src='https://i.ytimg.com/vi/BqJyluskTfM/maxresdefault.jpg';" src="{{game.thumbnail}}"></a>
 
 
                         <div class="card-block">
@@ -27,9 +27,9 @@
                         </div>
 
                         <div class="card-footer">
-                            <a class="card-button btn btn-warning" name="edit" href="/game/{{game.id}}" *ngIf="admin">Edit</a>
-                            <a class="card-button btn btn-danger" name="delete" href="/delete/{{game.id}}" *ngIf="admin">Delete</a>
-                            <a class="card-button btn btn-info" name="info" href="/details/{{game.id}}">Info</a>
+                            <a class="card-button btn btn-warning" name="edit" [routerLink]="['/game/', game.id]" *ngIf="admin">Edit</a>
+                            <a class="card-button btn btn-danger" name="delete" [routerLink]="['/delete/', game.id]" *ngIf="admin">Delete</a>
+                            <a class="card-button btn btn-info" name="info" [routerLink]="['/details/', game.id]">Info</a>
                             <button type="button" class="card-button btn btn-primary" name="buy" href="#" (click)="addToCard(game.id, game.title)" *ngIf="isAutenticated()">Buy</button>
                         </div>
 

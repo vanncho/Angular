@@ -33,22 +33,18 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="UserRegisterController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/gamestore/controllers/User/UserRegisterController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="29" column="4" lean-forward="false" selection-start-line="29" selection-start-column="4" selection-end-line="42" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="SecurityConfiguration.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/gamestore/configurations/SecurityConfiguration.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="42" column="36" lean-forward="false" selection-start-line="42" selection-start-column="36" selection-end-line="42" selection-end-column="36" />
-              <folding />
+            <state relative-caret-position="345">
+              <caret line="33" column="36" lean-forward="false" selection-start-line="33" selection-start-column="36" selection-end-line="33" selection-end-column="36" />
+              <folding>
+                <marker date="1527683763000" expanded="true" signature="1711:1725" ph="//..." />
+                <marker date="1527683763000" expanded="true" signature="1711:1790" ph="{...}" />
+                <marker date="1527683763000" expanded="false" signature="1845:1856" ph=" { " />
+                <marker date="1527683763000" expanded="false" signature="1896:1902" ph=" }" />
+                <marker date="1527683763000" expanded="true" signature="1974:2026" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -57,8 +53,11 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/gamestore/services/UserServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="915">
-              <caret line="77" column="8" lean-forward="false" selection-start-line="77" selection-start-column="8" selection-end-line="77" selection-end-column="8" />
-              <folding />
+              <caret line="90" column="8" lean-forward="false" selection-start-line="90" selection-start-column="8" selection-end-line="90" selection-end-column="8" />
+              <folding>
+                <marker date="1527685165000" expanded="true" signature="2882:3288" ph="{...}" />
+                <marker date="1527685165000" expanded="true" signature="3364:3943" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -67,8 +66,10 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/gamestore/repositories/CartRepository.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="150">
-              <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-              <folding />
+              <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -76,8 +77,8 @@
       <file leaf-file-name="CartServiceImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/gamestore/services/CartServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="33" column="43" lean-forward="false" selection-start-line="33" selection-start-column="43" selection-end-line="33" selection-end-column="43" />
+            <state relative-caret-position="1215">
+              <caret line="83" column="31" lean-forward="false" selection-start-line="83" selection-start-column="31" selection-end-line="83" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -86,38 +87,20 @@
       <file leaf-file-name="GameServiceImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/gamestore/services/GameServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="40" column="41" lean-forward="false" selection-start-line="40" selection-start-column="41" selection-end-line="40" selection-end-column="41" />
-              <folding />
+            <state relative-caret-position="645">
+              <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+              <folding>
+                <marker date="1527683606000" expanded="true" signature="5049:5056" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Cart.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Cart.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/gamestore/entities/Cart.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="24" column="28" lean-forward="false" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CartController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/gamestore/controllers/Cart/CartController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="application.properties" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="-210">
+              <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -141,32 +124,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
-  <component name="GradleLocalSettings">
-    <option name="externalProjectsViewState">
-      <projects_view />
-    </option>
-  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/gamestore/controllers/HelloController.java" />
-        <option value="$PROJECT_DIR$/src/main/ui/.angular-cli.json" />
-        <option value="$PROJECT_DIR$/src/main/ui/src/app/app.component.ts" />
-        <option value="$PROJECT_DIR$/.idea/workspace.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gamestore/models/Response.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gamestore/models/Error.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gamestore/enumerations/UserRole.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gamestore/repositories/UserRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gamestore/models/binding/UserRegisterModel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gamestore/entities/Role.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gamestore/repositories/RoleRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/ui/protractor.conf.js" />
-        <option value="$PROJECT_DIR$/src/main/ui/package.json" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gamestore/models/view/UserViewModel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gamestore/models/binding/LoginModel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gamestore/services/interfaces/UserService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gamestore/exceptions/UserExistsException.java" />
         <option value="$PROJECT_DIR$/src/main/ui/src/app/core/services/auth.service.ts" />
         <option value="$PROJECT_DIR$/src/main/java/com/gamestore/configurations/jwt/JWTToken.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/gamestore/configurations/jwt/JWTGenerator.java" />
@@ -199,6 +159,25 @@
         <option value="$PROJECT_DIR$/src/main/java/com/gamestore/models/Card/AddCardModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/gamestore/configurations/SecurityConfiguration.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/gamestore/controllers/Cart/CartController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gamestore/repositories/CartRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gamestore/models/Card/SimpleCardModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gamestore/models/Game/binding/PlainGameModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gamestore/models/Card/BuyCardModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gamestore/controllers/Game/GameController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gamestore/services/interfaces/GameService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gamestore/services/interfaces/CartService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gamestore/controllers/Cart/CartController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gamestore/services/GameServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gamestore/services/CartServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gamestore/configurations/SecurityConfiguration.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gamestore/controllers/User/UserLoginController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gamestore/controllers/User/UserController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gamestore/repositories/GameRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gamestore/entities/Role.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gamestore/services/interfaces/RoleService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gamestore/services/RoleServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gamestore/repositories/UserRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gamestore/services/UserServiceImpl.java" />
       </list>
     </option>
   </component>
@@ -254,6 +233,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -281,10 +262,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -318,11 +295,43 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gamestore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
       <pane id="AndroidView" />
     </panes>
   </component>
@@ -446,9 +455,9 @@
       <method />
     </configuration>
     <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="HEIGHT" value="0" />
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <option name="WIDTH" value="0" />
-      <option name="HEIGHT" value="0" />
       <module />
       <method />
     </configuration>
@@ -802,11 +811,13 @@
       <workItem from="1527571486829" duration="19483000" />
       <workItem from="1527619079843" duration="2307000" />
       <workItem from="1527621651812" duration="105000" />
+      <workItem from="1527790319184" duration="1647000" />
+      <workItem from="1527793312040" duration="461000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63918000" />
+    <option name="totallyTimeSpent" value="82593000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -818,7 +829,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="-1" width="1366" height="735" extended-state="6" />
+    <frame x="0" y="-1" width="1366" height="735" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -840,7 +851,7 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32861635" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36792454" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18374817" sideWeight="0.5" order="7" side_tool="false" content_ui="combo" />
@@ -857,15 +868,12 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="processedProjectFiles" value="true" />
-  </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="7" />
+      <option name="time" value="9" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -874,58 +882,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/ui/src/app/core/guards/auth/auth.guard.ts" />
-    <entry file="file://$PROJECT_DIR$/src/main/ui/src/app/components/auth/auth.module.ts" />
-    <entry file="file://$PROJECT_DIR$/src/main/ui/src/app/components/game/details-game/details-game.component.html" />
-    <entry file="file://$PROJECT_DIR$/src/main/ui/src/app/core/utils/auth.util.ts" />
-    <entry file="file://$PROJECT_DIR$/src/main/ui/src/app/components/game/details-game/details-game.component.ts" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gamestore/models/User/view/UserViewModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="46" column="10" lean-forward="false" selection-start-line="46" selection-start-column="10" selection-end-line="46" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/ui/src/app/app-routing.module.ts" />
-    <entry file="file://$PROJECT_DIR$/src/main/ui/src/app/core/services/game.service.ts" />
-    <entry file="file://$PROJECT_DIR$/src/main/ui/src/app/components/auth/login/login.component.ts" />
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-57">
-          <caret line="66" column="12" lean-forward="false" selection-start-line="66" selection-start-column="12" selection-end-line="66" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/io/jsonwebtoken/jjwt/0.9.0/jjwt-0.9.0.jar!/io/jsonwebtoken/SignatureException.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/4.3.13.RELEASE/spring-core-4.3.13.RELEASE.jar!/org/springframework/util/StringUtils.class" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.13.RELEASE/spring-web-4.3.13.RELEASE.jar!/org/springframework/http/HttpStatus.class" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/4.2.3.RELEASE/spring-security-core-4.2.3.RELEASE-sources.jar!/org/springframework/security/core/Authentication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-823">
-          <caret line="50" column="17" lean-forward="false" selection-start-line="50" selection-start-column="17" selection-end-line="50" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/io/jsonwebtoken/jjwt/0.9.0/jjwt-0.9.0.jar!/io/jsonwebtoken/UnsupportedJwtException.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="7" column="57" lean-forward="false" selection-start-line="7" selection-start-column="45" selection-end-line="7" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/io/jsonwebtoken/jjwt/0.9.0/jjwt-0.9.0.jar!/io/jsonwebtoken/ClaimJwtException.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="7" column="22" lean-forward="false" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/io/jsonwebtoken/jjwt/0.9.0/jjwt-0.9.0.jar!/io/jsonwebtoken/Jwts.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -978,87 +934,10 @@
     </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/apache/tomcat/embed/tomcat-embed-core/8.5.23/tomcat-embed-core-8.5.23-sources.jar!/org/apache/catalina/connector/Request.java" />
     <entry file="jar://$MAVEN_REPOSITORY$/org/apache/tomcat/embed/tomcat-embed-core/8.5.23/tomcat-embed-core-8.5.23-sources.jar!/org/apache/catalina/connector/RequestFacade.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gamestore/configurations/jwt/JWTToken.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gamestore/configurations/jwt/JWTGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gamestore/configurations/jwt/JWTConfigurer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gamestore/configurations/jwt/JWTFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-66">
-          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gamestore/configurations/jwt/TokenProvider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-884">
-          <caret line="33" column="42" lean-forward="true" selection-start-line="33" selection-start-column="42" selection-end-line="33" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/gamestore/models/Game/view/GameModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="478">
           <caret line="75" column="30" lean-forward="false" selection-start-line="75" selection-start-column="30" selection-end-line="75" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gamestore/entities/Game.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="19" column="4" lean-forward="true" selection-start-line="19" selection-start-column="4" selection-end-line="31" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gamestore/controllers/User/UserLoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="35" column="107" lean-forward="false" selection-start-line="35" selection-start-column="79" selection-end-line="35" selection-end-column="107" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gamestore/models/Game/binding/AddEditGameModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="20" lean-forward="true" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gamestore/services/interfaces/GameService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="18" column="57" lean-forward="false" selection-start-line="18" selection-start-column="57" selection-end-line="18" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gamestore/services/interfaces/CartService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gamestore/controllers/Game/GameController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="34" column="55" lean-forward="false" selection-start-line="34" selection-start-column="55" selection-end-line="34" selection-end-column="55" />
         </state>
       </provider>
     </entry>
@@ -1069,50 +948,78 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gamestore/services/GameServiceImpl.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.13.RELEASE/spring-web-4.3.13.RELEASE.jar!/org/springframework/http/HttpStatus.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="40" column="41" lean-forward="false" selection-start-line="40" selection-start-column="41" selection-end-line="40" selection-end-column="41" />
-          <folding />
+        <state relative-caret-position="213">
+          <caret line="29" column="4" lean-forward="false" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gamestore/repositories/CartRepository.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gamestore/models/Card/SimpleCardModel.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gamestore/models/Game/binding/AddEditGameModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="272">
+          <caret line="16" column="20" lean-forward="true" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gamestore/entities/Cart.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gamestore/models/Game/binding/PlainGameModel.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gamestore/models/Card/BuyCardModel.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gamestore/entities/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="24" column="28" lean-forward="false" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
-          <folding />
+        <state relative-caret-position="-153">
+          <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gamestore/services/CartServiceImpl.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/util/List.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/util/Set.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gamestore/configurations/SecurityConfiguration.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="33" column="43" lean-forward="false" selection-start-line="33" selection-start-column="43" selection-end-line="33" selection-end-column="43" />
-          <folding />
+        <state relative-caret-position="345">
+          <caret line="33" column="36" lean-forward="false" selection-start-line="33" selection-start-column="36" selection-end-line="33" selection-end-column="36" />
+          <folding>
+            <marker date="1527683763000" expanded="true" signature="1711:1725" ph="//..." />
+            <marker date="1527683763000" expanded="true" signature="1711:1790" ph="{...}" />
+            <marker date="1527683763000" expanded="false" signature="1845:1856" ph=" { " />
+            <marker date="1527683763000" expanded="false" signature="1896:1902" ph=" }" />
+            <marker date="1527683763000" expanded="true" signature="1974:2026" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gamestore/services/interfaces/UserService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gamestore/configurations/jwt/JWTConfigurer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="8" column="18" lean-forward="false" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+        <state relative-caret-position="136">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gamestore/services/UserServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gamestore/configurations/jwt/JWTFilter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="915">
-          <caret line="77" column="8" lean-forward="false" selection-start-line="77" selection-start-column="8" selection-end-line="77" selection-end-column="8" />
-          <folding />
+        <state relative-caret-position="68">
+          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gamestore/configurations/jwt/JWTGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gamestore/configurations/jwt/JWTToken.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gamestore/configurations/jwt/TokenProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1124,40 +1031,167 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gamestore/entities/User.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gamestore/entities/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1147">
-          <caret line="137" column="21" lean-forward="false" selection-start-line="137" selection-start-column="21" selection-end-line="137" selection-end-column="21" />
+        <state relative-caret-position="338">
+          <caret line="27" column="24" lean-forward="true" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gamestore/controllers/GameController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gamestore/exceptions/UserExistsException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/gamestore/models/Card/AddCardModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="10" lean-forward="false" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
+        <state relative-caret-position="34">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gamestore/configurations/SecurityConfiguration.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gamestore/repositories/CartRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="42" column="36" lean-forward="false" selection-start-line="42" selection-start-column="36" selection-end-line="42" selection-end-column="36" />
+        <state relative-caret-position="150">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gamestore/repositories/GameRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="49" lean-forward="false" selection-start-line="4" selection-start-column="49" selection-end-line="4" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gamestore/services/interfaces/CartService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gamestore/services/interfaces/GameService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="12" column="54" lean-forward="false" selection-start-line="12" selection-start-column="54" selection-end-line="12" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gamestore/services/CartServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1215">
+          <caret line="83" column="31" lean-forward="false" selection-start-line="83" selection-start-column="31" selection-end-line="83" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gamestore/services/GameServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="645">
+          <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+          <folding>
+            <marker date="1527683606000" expanded="true" signature="5049:5056" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gamestore/repositories/RoleRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gamestore/services/interfaces/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="8" column="18" lean-forward="false" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gamestore/enumerations/UserRole.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gamestore/entities/Role.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="35" lean-forward="false" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gamestore/services/interfaces/RoleService.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gamestore/repositories/UserRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gamestore/controllers/CartController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gamestore/controllers/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="24" column="13" lean-forward="false" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gamestore/services/RoleServiceImpl.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gamestore/services/UserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="915">
+          <caret line="90" column="8" lean-forward="false" selection-start-line="90" selection-start-column="8" selection-end-line="90" selection-end-column="8" />
+          <folding>
+            <marker date="1527685165000" expanded="true" signature="2882:3288" ph="{...}" />
+            <marker date="1527685165000" expanded="true" signature="3364:3943" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="49" lean-forward="false" selection-start-line="18" selection-start-column="49" selection-end-line="18" selection-end-column="49" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/gamestore/controllers/Cart/CartController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+        <state relative-caret-position="239">
+          <caret line="33" column="76" lean-forward="false" selection-start-line="33" selection-start-column="76" selection-end-line="33" selection-end-column="76" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/4.3.13.RELEASE/spring-context-4.3.13.RELEASE.jar!/org/springframework/context/annotation/ConfigurationClassPostProcessor.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="214">
+          <caret line="132" column="0" lean-forward="false" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gamestore/entities/Cart.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-210">
+          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding />
         </state>
       </provider>

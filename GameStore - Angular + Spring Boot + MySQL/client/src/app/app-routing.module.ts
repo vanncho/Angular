@@ -21,16 +21,15 @@ const routes: Routes = [
 //    path: 'home', canActivate: [AuthGuard], component: HomeBasicComponent
     path: 'home', component: HomeBasicComponent
   },
-  {
-    path: '', redirectTo: 'home', pathMatch: 'full'
-  },
+  {path: '', redirectTo: 'home', pathMatch: 'full'},
+  {path: '', loadChildren: '../app/components/game/game.module#GameModule'}, // Lazy loading !
   {path: 'login', component: LoginComponent},
   {path: 'logout', canActivate: [AuthGuard], component: LogoutComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'games', canActivate: [AdminGuard], component: GamesAdminComponent},
-  {path: 'game/:id', canActivate: [AdminGuard], component: AddEditGameComponent},
-  {path: 'delete/:id', canActivate: [AdminGuard], component: DeleteGameComponent},
-  {path: 'details/:id', canActivate: [AuthGuard], component: DetailsGameComponent},
+  // {path: 'games', canActivate: [AdminGuard], component: GamesAdminComponent},
+  // {path: 'game/:id', canActivate: [AdminGuard], component: AddEditGameComponent},
+  // {path: 'delete/:id', canActivate: [AdminGuard], component: DeleteGameComponent},
+  // {path: 'details/:id', canActivate: [AuthGuard], component: DetailsGameComponent},
   {path: 'cart', canActivate: [AuthGuard], component: CartComponent},
   { path: '**', component: NotFoundComponent }
 ];

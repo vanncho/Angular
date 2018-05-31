@@ -1,10 +1,10 @@
-import {Component, OnDestroy, OnInit, ViewContainerRef} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
-import {ToastsManager} from 'ng2-toastr/ng2-toastr';
-import {ISubscription} from 'rxjs/Subscription';
+import { Component, OnDestroy, OnInit, ViewContainerRef } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
+import { ISubscription } from 'rxjs/Subscription';
 
-import {AddEditModel} from '../../../core/models/inputs/add-edit-game.model';
-import {GameService} from '../../../core/services/game.service';
+import { AddEditModel } from '../../../core/models/inputs/add-edit-game.model';
+import { GameService } from '../../../core/services/game.service';
 
 @Component({
   selector: 'app-delete-game',
@@ -46,13 +46,18 @@ export class DeleteGameComponent implements OnInit, OnDestroy {
 
     const prevUrl = localStorage.getItem('prevUrl');
 
-    this.subscriptionDeleteGame = this.gameService.deleteGame(this.currGameId).subscribe(data => {
+    this.subscriptionDeleteGame = this.gameService.deleteGame(this.currGameId).subscribe(() => {
 
         this.toastr.success('Removed from store!', this.game.title);
         setTimeout(() => {
           this.router.navigate([prevUrl]);
-        }, 1200);
-        
+        }, 900);
+
+      }, error => {
+
+        if (error.status === 400) {
+          this.toastr.error('Opps! Not deleted!', this.game.title);
+        }
       }
     );
   }

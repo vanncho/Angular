@@ -17,21 +17,12 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true)
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-    //private final UserService userService;
     private final TokenProvider tokenProvider;
 
     @Autowired
     public SecurityConfiguration(TokenProvider tokenProvider) {
-
-        //this.userService = userService;
         this.tokenProvider = tokenProvider;
     }
-
-//    @Override
-//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//
-//        auth.userDetailsService(userService).passwordEncoder(getBCryptPasswordEncoder());
-//    }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -46,16 +37,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/api/register").permitAll()
                 .antMatchers("/api/login").permitAll()
-                .antMatchers("/api/allGames").permitAll()
-                .antMatchers("/api/details/{id}").permitAll()
-                .antMatchers("api/add").permitAll() // TODO: ADD RESTRICTIONS FOR ADMIN ONLY
-                .antMatchers("api/edit/{id}").permitAll()
-                .antMatchers("api/usercart/{id}").permitAll()
-//                .antMatchers("/api/users/people").permitAll()
-                .antMatchers("/api/logout").permitAll()
-//                .antMatchers("/api/notification").permitAll()
-//                .antMatchers("/api/chat/getChat/{chatId}").permitAll()
-//                .antMatchers("/**").permitAll()
                 .and().apply(securityConfigurerAdapter());
     }
 

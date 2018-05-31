@@ -8,11 +8,11 @@
                 <br/>
                 <div class="list-group">
                     <div class="list-group-item" *ngFor="let cart of cartData">
-                        <button type="button" class="btn btn-default btn-lg" (click)="removeFromCart(cart.id, cart.title)">X</button>
+                        <button type="button" class="btn btn-default btn-lg" (click)="removeFromCart(cart.gameId, cart.title)">X</button>
                         <div class="media col-3">
                             <figure class="pull-left">
                                 <a href="#">
-                                    <img class="card-image-top img-fluid img-thumbnail" onerror="this.src='https://i.ytimg.com/vi/BqJyluskTfM/maxresdefault.jpg';" src="{{cart.thumbnail}}"></a>
+                                    <img class="card-image-top img-fluid img-thumbnail" onerror="this.src='https://i.ytimg.com/vi/BqJyluskTfM/maxresdefault.jpg';" src="{{cart.imageUrl}}"></a>
                             </figure>
                         </div>
                         <div class="col-md-6 right">

@@ -1,9 +1,11 @@
-import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs/Observable';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
-import {AuthUtil} from '../utils/auth.util';
-import {HttpClientService} from './http-client.service';
+
+import { AuthUtil } from '../utils/auth.util';
+import { HttpClientService } from './http-client.service';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable()
@@ -19,6 +21,11 @@ export class GameService {
   getAllGames(): Observable<Object> {
 
     return this.httpClientService.get('/api/allGames', this.authUtil.headersBasic());
+  }
+
+  getAllUserGames(userId): Observable<Object> {
+
+    return this.httpClientService.post('/api/allUserGames', JSON.stringify(userId), this.authUtil.headersBasic());
   }
 
   getGameById(gameId): Observable<Object> {

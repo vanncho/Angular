@@ -1,7 +1,7 @@
-import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs/Observable';
-import {AuthUtil} from '../utils/auth.util';
-import {HttpClientService} from './http-client.service';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { AuthUtil } from '../utils/auth.util';
+import { HttpClientService } from './http-client.service';
 
 @Injectable()
 export class MyGamesService {

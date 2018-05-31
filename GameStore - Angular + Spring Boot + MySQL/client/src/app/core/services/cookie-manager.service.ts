@@ -10,21 +10,26 @@ export class CookieManagerService {
 
   constructor(private _cookieService: CookieService) { }
 
-  saveLoginData(data) {
+  saveLoginData(data): void {
 
     this._cookieService.put(authtoken, data.token);
     this._cookieService.put(userrole, data.role);
     this._cookieService.put(userid, data.id);
   }
 
-  removeLoginData() {
-    
+  removeLoginData(): void {
+
     this._cookieService.remove(authtoken);
     this._cookieService.remove(userrole);
     this._cookieService.remove(userid);
   }
 
-  get(key) {
+  add(key, value): void {
+
+    this._cookieService.put(key, value);
+  }
+
+  get(key): string {
 
     return this._cookieService.get(key);
   }

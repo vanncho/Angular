@@ -1,4 +1,4 @@
-package com.gamestore.controllers.Game;
+package com.gamestore.controllers;
 
 import com.gamestore.models.Game.binding.AddEditGameModel;
 import com.gamestore.models.Game.view.GameListModel;
@@ -31,6 +31,14 @@ public class GameController {
         return new ResponseEntity<>(games, HttpStatus.OK);
     }
 
+    @PostMapping("/allUserGames")
+    public ResponseEntity<List<GameListModel>> listAllGamesForUser(@RequestBody Long userId) {
+
+        List<GameListModel> games = gameService.getAllGamesForUser(userId);
+
+        return new ResponseEntity<>(games, HttpStatus.OK);
+    }
+
     @GetMapping("/details/{id}")
     public ResponseEntity<GameModel> getGameById(@PathVariable(name = "id") Long gameId) {
 
@@ -46,9 +54,9 @@ public class GameController {
 
         if (isSaved) {
             return new ResponseEntity(HttpStatus.OK);
-        } else {
-            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
         }
+
+        return new ResponseEntity(HttpStatus.BAD_REQUEST);
     }
 
     @PutMapping("/edit/{id}")
@@ -58,9 +66,9 @@ public class GameController {
 
         if (isEdited) {
             return new ResponseEntity(HttpStatus.OK);
-        } else {
-            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
         }
+
+        return new ResponseEntity(HttpStatus.BAD_REQUEST);
     }
 
     @DeleteMapping("/delete/{id}")
@@ -70,8 +78,8 @@ public class GameController {
 
         if (isDeleted) {
             return new ResponseEntity(HttpStatus.OK);
-        } else {
-            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
         }
+
+        return new ResponseEntity(HttpStatus.BAD_REQUEST);
     }
 }

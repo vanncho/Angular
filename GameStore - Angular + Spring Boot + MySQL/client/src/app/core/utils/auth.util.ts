@@ -1,7 +1,7 @@
-import {Injectable} from '@angular/core';
-import {HttpHeaders} from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { HttpHeaders } from '@angular/common/http';
 
-import {CookieManagerService} from '../../core/services/cookie-manager.service';
+import { CookieManagerService } from '../../core/services/cookie-manager.service';
 
 @Injectable()
 export class AuthUtil {

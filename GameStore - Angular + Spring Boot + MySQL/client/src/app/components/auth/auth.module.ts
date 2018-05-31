@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
-
-import { authenticationComponents } from './index';
-
+import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { authenticationComponents } from './index';
 
 import { AuthenticationService } from '../../core/services/auth.service';
 
@@ -15,6 +14,7 @@ import { AuthenticationService } from '../../core/services/auth.service';
   ],
   imports: [
     CommonModule,
+    RouterModule,
     FormsModule,
     HttpClientModule
   ],

@@ -1,9 +1,6 @@
 import { NgModule } from '@angular/core';
-
-import { cartModules } from './index';
-
 import { CommonModule } from '@angular/common';
-
+import { cartModules } from './index';
 
 @NgModule({
   declarations: [

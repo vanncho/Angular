@@ -1,7 +1,7 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {ISubscription} from 'rxjs/Subscription';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ISubscription } from 'rxjs/Subscription';
 
-import {GameService} from '../../../core/services/game.service';
+import { GameService } from '../../../core/services/game.service';
 
 @Component({
   selector: 'app-games-admin',

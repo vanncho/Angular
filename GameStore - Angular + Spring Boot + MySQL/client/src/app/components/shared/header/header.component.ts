@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {AuthenticationService} from '../../../core/services/auth.service';
-import {CookieManagerService} from '../../../core/services/cookie-manager.service';
+import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from '../../../core/services/auth.service';
+import { CookieManagerService } from '../../../core/services/cookie-manager.service';
 
 @Component({
   selector: 'app-header',

@@ -1,7 +1,7 @@
-import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs/Observable';
-import {AuthUtil} from '../utils/auth.util';
-import {HttpClientService} from './http-client.service';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { AuthUtil } from '../utils/auth.util';
+import { HttpClientService } from './http-client.service';
 
 @Injectable()
 export class CartService {
@@ -16,27 +16,27 @@ export class CartService {
 
   addGameToCart(cartObject): Observable<Object> {
 
-    return this.httpClientService.post('api/addcart/', JSON.stringify(cartObject), this.authUtil.headersBasic());
+    return this.httpClientService.post('api/addToCart/', JSON.stringify(cartObject), this.authUtil.headersBasic());
   }
 
   getAllGamesInCart(userId): Observable<Object> {
 
-    this.url = 'api/usercart/' + userId;
+    this.url = 'api/userCart/' + userId;
 
     return this.httpClientService.get(this.url, this.authUtil.headersBasic());
   }
 
-  deleteGameFromCart(cartId): Observable<Object> {
+  deleteGameFromCart(cartObject): Observable<Object> {
 
-    // this.url = this.authUtil.kinveyBaseUrl + this.authUtil.appKey + this.collectionName + '/' + cartId;
+    this.url = 'api/removeFromCart/';
 
-    return this.httpClientService.delete(this.url, this.authUtil.headersBasic());
+    return this.httpClientService.post(this.url, JSON.stringify(cartObject), this.authUtil.headersBasic());
   }
 
-  deleteByGameId(gameId): Observable<Object> {
+  makeOrderForUser(userId, buyCardModel): Observable<Object> {
 
-    // this.url = this.authUtil.kinveyBaseUrl + this.authUtil.appKey + this.collectionName + `?query={"game":"${gameId}"}`;
+    this.url = 'api/order/' + userId;
 
-    return this.httpClientService.delete(this.url, this.authUtil.headersBasic());
+    return this.httpClientService.post(this.url, JSON.stringify(buyCardModel.games), this.authUtil.headersBasic());
   }
 }

@@ -1,10 +1,10 @@
-import {Component, OnDestroy, OnInit, ViewContainerRef} from '@angular/core';
-import {Router} from '@angular/router';
-import {ToastsManager} from 'ng2-toastr/ng2-toastr';
-import {ISubscription} from 'rxjs/Subscription';
+import { Component, OnDestroy, OnInit, ViewContainerRef } from '@angular/core';
+import { Router } from '@angular/router';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
+import { ISubscription } from 'rxjs/Subscription';
 
-import {RegisterModel} from '../../../core/models/inputs/register.model';
-import {AuthenticationService} from '../../../core/services/auth.service';
+import { RegisterModel } from '../../../core/models/inputs/register.model';
+import { AuthenticationService } from '../../../core/services/auth.service';
 
 @Component({
   selector: 'app-register',

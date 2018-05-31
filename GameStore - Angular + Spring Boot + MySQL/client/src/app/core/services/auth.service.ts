@@ -1,12 +1,12 @@
-import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs/Observable';
-import {ISubscription} from 'rxjs/Subscription';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { ISubscription } from 'rxjs/Subscription';
 
-import {RegisterModel} from '../models/inputs/register.model';
-import {LoginModel} from '../models/inputs/login.model';
-import {AuthUtil} from '../utils/auth.util';
-import {HttpClientService} from './http-client.service';
-import {CookieManagerService} from '../../core/services/cookie-manager.service';
+import { RegisterModel } from '../models/inputs/register.model';
+import { LoginModel } from '../models/inputs/login.model';
+import { AuthUtil } from '../utils/auth.util';
+import { HttpClientService } from './http-client.service';
+import { CookieManagerService } from '../../core/services/cookie-manager.service';
 
 @Injectable()
 export class AuthenticationService {

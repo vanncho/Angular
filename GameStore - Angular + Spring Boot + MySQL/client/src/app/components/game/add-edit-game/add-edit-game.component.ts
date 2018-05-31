@@ -1,13 +1,13 @@
-import {Component, OnDestroy, OnInit, ViewContainerRef} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
-import {ToastsManager} from 'ng2-toastr/ng2-toastr';
-import {ISubscription} from 'rxjs/Subscription';
+import { Component, OnDestroy, OnInit, ViewContainerRef } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
+import { ISubscription } from 'rxjs/Subscription';
 
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/pairwise';
 
-import {GameService} from '../../../core/services/game.service';
-import {AddEditModel} from './../../../core/models/inputs/add-edit-game.model';
+import { GameService } from '../../../core/services/game.service';
+import { AddEditModel } from './../../../core/models/inputs/add-edit-game.model';
 
 @Component({
   selector: 'app-add-edit-game',
@@ -58,24 +58,34 @@ export class AddEditGameComponent implements OnInit, OnDestroy {
     const prevUrl = localStorage.getItem('prevUrl');
     if (this.currGameId !== '0') {
 
-      this.subscriptionEditGame = this.gameService.editGame(this.currGameId, this.game).subscribe(data => {
+      this.subscriptionEditGame = this.gameService.editGame(this.currGameId, this.game).subscribe(() => {
 
           this.toastr.success('Edited successfully!', this.game.title);
           setTimeout(() => {
             this.router.navigate([prevUrl]);
-          }, 1200);
+          }, 900);
 
+        }, error => {
+
+          if (error.status === 400) {
+            this.toastr.error('Opps! Not edited!', this.game.title);
+          }
         }
       );
     } else {
 
-      this.subscriptionAddGame = this.gameService.addGame(this.game).subscribe(data => {
+      this.subscriptionAddGame = this.gameService.addGame(this.game).subscribe(() => {
 
           this.toastr.success('Added successfully!', this.game.title);
           setTimeout(() => {
             this.router.navigate([prevUrl]);
-          }, 1200);
+          }, 900);
 
+        }, error => {
+
+          if (error.status === 400) {
+            this.toastr.error('Opps! Not added!', this.game.title);
+          }
         }
       );
     }

@@ -1,12 +1,14 @@
-import {Component, OnDestroy, OnInit, ViewContainerRef} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
-import {DomSanitizer} from '@angular/platform-browser';
-import {ISubscription} from 'rxjs/Subscription';
-import {ToastsManager} from 'ng2-toastr/ng2-toastr';
+import { Component, OnDestroy, OnInit, ViewContainerRef } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { DomSanitizer } from '@angular/platform-browser';
+import { ISubscription } from 'rxjs/Subscription';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
-import {AddEditModel} from '../../../core/models/inputs/add-edit-game.model';
-import {GameService} from '../../../core/services/game.service';
-import {AuthUtil} from '../../../core/utils/auth.util';
+import { AddEditModel } from '../../../core/models/inputs/add-edit-game.model';
+import { GameService } from '../../../core/services/game.service';
+import { CartService } from '../../../core/services/cart.service';
+import { AuthUtil } from '../../../core/utils/auth.util';
+import { CookieManagerService } from '../../../core/services/cookie-manager.service';
 
 @Component({
   selector: 'app-details-game',
@@ -16,6 +18,7 @@ import {AuthUtil} from '../../../core/utils/auth.util';
 export class DetailsGameComponent implements OnInit, OnDestroy {
 
   private subscription: ISubscription;
+  private subscriptionAddGameToCart: ISubscription;
   public currGameId: any;
   public admin: boolean;
   public prevUrl: string;
@@ -24,9 +27,11 @@ export class DetailsGameComponent implements OnInit, OnDestroy {
 
   constructor(private authUtil: AuthUtil,
               private route: ActivatedRoute,
-              private toastr: ToastsManager, vcr: ViewContainerRef, 
+              private toastr: ToastsManager, vcr: ViewContainerRef,
               public sanitizer: DomSanitizer,
-              private gameService: GameService) {
+              private gameService: GameService,
+              private cartService: CartService,
+              private cookieService: CookieManagerService) {
     this.game = new AddEditModel('', '', '', 0, 0, '', '');
     this.toastr.setRootViewContainerRef(vcr);
   }
@@ -45,19 +50,39 @@ export class DetailsGameComponent implements OnInit, OnDestroy {
         this.game.size = data['size'];
         this.game.video = data['video'];
         this.game.date = data['date'];
-    }
-      // }, err => {
-      //   //this.toastr.error(err);
-      // }
+
+      }, error => {
+      }
     );
 
     this.prevUrl = localStorage.getItem('prevUrl');
   }
 
+  addToCard(gameId, gameTitle): void {
+
+    const userId = this.cookieService.get('userid');
+
+    this.subscriptionAddGameToCart = this.cartService.addGameToCart({userId: userId, gameId: gameId}).subscribe(() => {
+
+       this.toastr.success('Added to your cart!', gameTitle);
+
+      }, error => {
+
+       if (error.status === 400) {
+         this.toastr.warning('Is already in your cart!', gameTitle);
+       }
+      }
+    );
+   }
+
   ngOnDestroy(): void {
 
     if (this.subscription) {
       this.subscription.unsubscribe();
+    }
+
+    if (this.subscriptionAddGameToCart) {
+      this.subscriptionAddGameToCart.unsubscribe();
     }
   }
 }
