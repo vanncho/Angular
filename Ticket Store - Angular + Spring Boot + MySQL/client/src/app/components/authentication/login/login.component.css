@@ -1,0 +1,16 @@
+#modif-jumbotron {
+    background-color: #0f0f0f;
+}
+
+h2,
+label {
+    color: white;
+}
+
+#regSpanText {
+    color: white;
+}
+
+#fbBtn {
+    margin-top: 15px;
+}

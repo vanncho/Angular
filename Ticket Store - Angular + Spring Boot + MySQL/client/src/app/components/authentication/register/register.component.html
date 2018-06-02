@@ -1,0 +1,68 @@
+<div class="container">
+
+    <div class="row">
+        <div class="col-lg-6 col-sm-6 col-xs-6">
+            <div class="jumbotron" id="modif-jumbotron">
+                <form (ngSubmit)="register()" #loginForm="ngForm" method="POST">
+                    <h2 class="glyphicon glyphicon-log-in"> User registration</h2>
+                    <br>
+                    <br>
+                    <div class="form-group col-md-6">
+                        <label for="firstName" class="form-control-label">First Name</label>
+                        <input id="firstName" pattern="^([A-Z]+[a-z]+)$" name="firstName" placeholder="first name" class="form-control" [(ngModel)]="model.firstName" [ngModelOptions]="{standalone: true}" #firstName="ngModel" />
+                        <div [hidden]="firstName.valid || firstName.pristine" class="alert alert-danger">
+                            Incorrect first name.
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="lastName" class="form-control-label">Last Name</label>
+                        <input id="lastName" pattern="^([A-Z]+[a-z]+)$" name="lastName" placeholder="last name" class="form-control" [(ngModel)]="model.lastName" [ngModelOptions]="{standalone: true}" #lastName="ngModel" />
+                        <div [hidden]="lastName.valid || lastName.pristine" class="alert alert-danger">
+                            Incorrect last name.
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-12">
+                        <label for="username" class="form-control-label">Username</label>
+                        <input id="username" pattern="^[a-zA-Z0-9]+$" name="username" placeholder="username" class="form-control" [(ngModel)]="model.username" [ngModelOptions]="{standalone: true}" #username="ngModel" />
+                        <div [hidden]="username.valid || username.pristine" class="alert alert-danger">
+                            Incorrect username.
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-12">
+                        <label for="email" class="form-control-label">Email</label>
+                        <input id="email" type="email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" class="form-control" name="email" placeholder="email" [(ngModel)]="model.email" [ngModelOptions]="{standalone: true}" #email="ngModel" />
+                        <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
+                            Incorrect email address.
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="password" class="form-control-label">Password</label>
+                        <input id="password" type="password" pattern="^[A-Za-z0-9]{3,}$" name="password" class="form-control" placeholder="password" [(ngModel)]="model.password" [ngModelOptions]="{standalone: true}" #password="ngModel" />
+                        <div [hidden]="password.valid || password.pristine" class="alert alert-danger">
+                            Password can't be less than 3 symbols long and can only contains letters and digits.
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="confirmPassword" class="form-control-label">Repeat Password</label>
+                        <input id="confirmPassword" type="password" pattern="^[A-Za-z0-9]{3,}$" name="confirmPassword" class="form-control" placeholder="confirm password" [(ngModel)]="model.confirmPassword" [ngModelOptions]="{standalone: true}" #confirmPassword="ngModel" />
+                        <div [hidden]="confirmPassword.valid || confirmPassword.pristine" class="alert alert-danger">
+                            Password can't be less than 3 symbols long and can only contains letters and digits.
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <div class="controls">
+                            <input type="submit" class="btn btn-default" id="regBtn" value="Register" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
