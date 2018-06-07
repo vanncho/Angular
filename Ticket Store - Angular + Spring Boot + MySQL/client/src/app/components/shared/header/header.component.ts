@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../../../core/services/authentication.service';
 import { CookieManagerService } from '../../../core/services/cookie-manager.service';
+import { AppComponent } from '../../../app.component';
+
+import { UserType } from '../../../core/enumerations/user-type.enum';
 
 @Component({
   selector: 'app-header',
@@ -13,7 +16,8 @@ export class HeaderComponent implements OnInit {
   public username: string;
 
   constructor(private authenticationService: AuthenticationService,
-              private cookieService: CookieManagerService) {
+              private cookieService: CookieManagerService,
+              private app: AppComponent) {
   }
 
   ngOnInit(): void {
@@ -21,12 +25,12 @@ export class HeaderComponent implements OnInit {
     this.username = this.cookieService.get('fullName');
   }
 
-  showHideNavigation() {
+  private showHideNavigation() {
 
     return this.authenticationService.isLoggedIn();
   }
 
-  isAdmin() {
+  private isAdmin(): boolean {
 
     const role = this.cookieService.get('userrole');
 
@@ -39,4 +43,8 @@ export class HeaderComponent implements OnInit {
     return this.admin;
   }
 
+  private getAdminPannel(): void {
+
+    this.app.setMenuTo(UserType.ADMIN);
+  }
 }

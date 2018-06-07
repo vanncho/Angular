@@ -15,6 +15,7 @@ import { LogoutComponent } from './components/authentication/logout/logout.compo
 import { RegisterComponent } from './components/authentication/register/register.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
 import { HeaderComponent } from './components/shared/header/header.component';
+import { HeaderAdminComponent } from './components/shared/header-admin/header-admin.component';
 import { NotFoundComponent } from './components/shared/not-found/not-found.component';
 import { HomeUserComponent } from './components/user/home-user/home-user.component';
 
@@ -24,6 +25,8 @@ import { AdminGuard } from './core/guards/admin/admin.guard';
 import { HttpClientService } from './core/services/http-client.service';
 import { CookieService } from 'angular2-cookie/core';
 import { CookieManagerService } from './core/services/cookie-manager.service';
+import { UserService } from './core/services/user.service';
+import { RoleService } from './core/services/role.service';
 
 // Utils
 import { AuthenticationUtility } from './core/utils/authentication.util';
@@ -46,10 +49,12 @@ import { AuthenticationUtility } from './core/utils/authentication.util';
   providers: [
     AuthGuard,
     AdminGuard,
+    AuthenticationUtility,
     HttpClientService,
     CookieService,
     CookieManagerService,
-    AuthenticationUtility
+    UserService,
+    RoleService
   ],
   bootstrap: [AppComponent]
 })

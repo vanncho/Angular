@@ -2,9 +2,12 @@ import { Component, OnDestroy, OnInit, ViewContainerRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 import { ISubscription } from 'rxjs/Subscription';
+import { AppComponent } from '../../../app.component';
 
 import { AuthenticationService } from '../../../core/services/authentication.service';
 import { CookieManagerService } from '../../../core/services/cookie-manager.service';
+
+import { UserType } from '../../../core/enumerations/user-type.enum';
 
 @Component({
   selector: 'app-logout',
@@ -18,13 +21,18 @@ export class LogoutComponent implements OnInit, OnDestroy {
   constructor(private authenticationService: AuthenticationService,
               private cookieService: CookieManagerService,
               private toastr: ToastsManager, vcr: ViewContainerRef,
-              private router: Router) {
+              private router: Router,
+              private app: AppComponent) {
     this.toastr.setRootViewContainerRef(vcr);
   }
 
   ngOnInit(): void {
 
     this.subscription = this.authenticationService.logout().subscribe(data => {
+
+        const status = this.cookieService.get('sap');
+
+        this.app.setMenuTo(UserType.USER);
 
         this.cookieService.removeLoginData();
 

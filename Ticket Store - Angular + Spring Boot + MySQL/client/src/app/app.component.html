@@ -1,5 +1,6 @@
 <div id="content">
-    <app-header></app-header>
+    <app-header *ngIf="!showHideAdminMenu()"></app-header>
+    <app-header-admin *ngIf="showHideAdminMenu()"></app-header-admin>
 
     <router-outlet></router-outlet>
 

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { userComponents } from './index';
-// import { AuthenticationService } from '../../core/services/authentication.service';
+import { AuthenticationService } from '../../core/services/authentication.service';
 
 
 @NgModule({
@@ -17,7 +17,7 @@ import { userComponents } from './index';
     ...userComponents
   ],
   providers: [
-    // AuthenticationService
+    AuthenticationService
     ]
 })
 

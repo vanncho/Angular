@@ -5,6 +5,7 @@ const authtoken = 'authtoken';
 const fullName = 'fullName';
 const userrole = 'userrole';
 const userid = 'userid';
+const showAdminPanel = 'sap';
 
 @Injectable()
 export class CookieManagerService {
@@ -17,6 +18,7 @@ export class CookieManagerService {
     this._cookieService.put(fullName, data.fullName);
     this._cookieService.put(userrole, data.role);
     this._cookieService.put(userid, data.id);
+    this._cookieService.put(showAdminPanel, 'false');
   }
 
   removeLoginData(): void {
@@ -25,6 +27,7 @@ export class CookieManagerService {
     this._cookieService.remove(fullName);
     this._cookieService.remove(userrole);
     this._cookieService.remove(userid);
+    this._cookieService.remove(showAdminPanel);
   }
 
   add(key, value): void {

@@ -3,11 +3,14 @@ package com.ticketstore.server.models.User.view;
 public class UserViewModel {
 
     private long id;
+    private String username;
+    private String firstName;
+    private String lastName;
+    private String fullName;
     private String email;
     private String role;
-    private String username;
-    private String fullName;
     private String token;
+    private Boolean accountLocked;
 
     public long getId() {
         return id;
@@ -15,6 +18,38 @@ public class UserViewModel {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getFullName() {
+        return this.fullName;
+    }
+
+    public void setFullName() {
+        this.fullName = this.firstName + " " + this.lastName;
     }
 
     public String getEmail() {
@@ -33,27 +68,19 @@ public class UserViewModel {
         this.role = role;
     }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getFullName() {
-        return fullName;
-    }
-
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
-    }
-
     public String getToken() {
         return token;
     }
 
     public void setToken(String token) {
         this.token = token;
+    }
+
+    public Boolean getAccountLocked() {
+        return accountLocked;
+    }
+
+    public void setAccountLocked(Boolean accountLocked) {
+        this.accountLocked = accountLocked;
     }
 }

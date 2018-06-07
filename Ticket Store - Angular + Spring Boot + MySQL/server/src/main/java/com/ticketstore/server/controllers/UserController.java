@@ -1,8 +1,10 @@
 package com.ticketstore.server.controllers;
 
 import com.ticketstore.server.configurations.jwt.JWTGenerator;
+import com.ticketstore.server.models.Role.binding.RoleModel;
 import com.ticketstore.server.models.User.binding.LoginModel;
 import com.ticketstore.server.models.User.binding.UserRegisterModel;
+import com.ticketstore.server.models.User.binding.UserUpdateModel;
 import com.ticketstore.server.models.User.view.UserViewModel;
 import com.ticketstore.server.services.interfaces.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.util.Collections;
+import java.util.List;
 
 @RestController
 @CrossOrigin
@@ -74,5 +77,58 @@ public class UserController {
         }
 
         return new ResponseEntity(HttpStatus.OK);
+    }
+
+    @GetMapping("/allUsers")
+    public ResponseEntity<List<UserViewModel>> getAllUsers() {
+
+        List<UserViewModel> users = userService.getAllUsers();
+
+        return new ResponseEntity<>(users, HttpStatus.OK);
+    }
+
+    @PostMapping("/allUsers")
+    public ResponseEntity<List<UserViewModel>> getAllUsers(@RequestBody RoleModel userRole) {
+
+        List<UserViewModel> users = userService.getAllUsersWith(userRole);
+
+        return new ResponseEntity<>(users, HttpStatus.OK);
+    }
+
+    @GetMapping("/edit/{userId}")
+    public ResponseEntity<UserViewModel> getUserById(@PathVariable("userId") Long userId) {
+
+        UserViewModel user = userService.getUserById(userId);
+
+        return new ResponseEntity<>(user, HttpStatus.OK);
+    }
+
+    @PostMapping(value = "/edit")
+    public ResponseEntity updateUserById(@RequestBody UserUpdateModel user) {
+
+        boolean isUpdated = userService.updateUser(user);
+
+        if (isUpdated) {
+            return new ResponseEntity(HttpStatus.OK);
+        }
+
+        return new ResponseEntity(HttpStatus.BAD_REQUEST);
+
+    }
+
+    @PostMapping("/lockUnlock")
+    public ResponseEntity disableOrEnableUser(@RequestBody Long userId) {
+
+        userService.disableOrEnableUser(userId);
+
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @PostMapping("/searchUsers")
+    public ResponseEntity<List<UserViewModel>> searchUsersByName(@RequestBody String username) {
+
+        List<UserViewModel> users = userService.searchUsersByName(username);
+
+        return new ResponseEntity<>(users, HttpStatus.OK);
     }
 }

@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 import { ISubscription } from 'rxjs/Subscription';
 
-import { LoginModel } from '../../../core/models/input/login.model';
+import { LoginModel } from '../../../core/models/binding/login.model';
 import { AuthenticationService } from '../../../core/services/authentication.service';
 import { CookieManagerService } from '../../../core/services/cookie-manager.service';
 

@@ -13,11 +13,12 @@ import { AdminGuard } from './core/guards/admin/admin.guard';
 
 const routes: Routes = [
 
-  {path: 'home', component: HomeUserComponent},
-  {path: '', redirectTo: 'home', pathMatch: 'full'},
+  {path: 'user/home', component: HomeUserComponent},
+  {path: '', redirectTo: 'user/home', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
   {path: 'logout', canActivate: [AuthGuard], component: LogoutComponent},
   {path: 'register', component: RegisterComponent},
+  {path: 'admin', loadChildren: '../app/components/admin/admin.module#AdminModule'}, // Lazy loading !
   { path: '**', component: NotFoundComponent }
 ];
 

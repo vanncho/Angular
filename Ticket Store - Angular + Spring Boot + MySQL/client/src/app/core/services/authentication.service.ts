@@ -2,8 +2,8 @@ import { Injectable, OnDestroy } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { ISubscription } from 'rxjs/Subscription';
 
-import { RegisterModel } from '../models/input/register.model';
-import { LoginModel } from '../models/input/login.model';
+import { RegisterModel } from '../models/binding/register.model';
+import { LoginModel } from '../models/binding/login.model';
 import { AuthenticationUtility } from '../utils/authentication.util';
 import { HttpClientService } from './http-client.service';
 import { CookieManagerService } from '../../core/services/cookie-manager.service';
@@ -25,7 +25,7 @@ export class AuthenticationService implements OnDestroy {
     this.isLogged = false;
   }
 
-  login(loginModel: LoginModel) {
+  login(loginModel: LoginModel): Observable<Object> {
 
     return this.httpClientService.post('/api/login', JSON.stringify(loginModel), this.authUtil.headersBasic());
  }
@@ -35,7 +35,7 @@ export class AuthenticationService implements OnDestroy {
     return this.httpClientService.post('/api/register', JSON.stringify(registerModel), this.authUtil.headersBasic());
   }
 
-  logout() {
+  logout(): Observable<Object> {
 
     return this.httpClientService.get('/api/logout', this.authUtil.headersBasic());
   }

@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { ToastsManager, ToastOptions } from 'ng2-toastr/ng2-toastr';
 import { ISubscription } from 'rxjs/Subscription';
 
-import { RegisterModel } from '../../../core/models/input/register.model';
+import { RegisterModel } from '../../../core/models/binding/register.model';
 import { AuthenticationService } from '../../../core/services/authentication.service';
 
 @Component({
