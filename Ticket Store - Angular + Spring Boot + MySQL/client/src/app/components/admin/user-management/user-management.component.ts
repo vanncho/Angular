@@ -52,10 +52,15 @@ export class UserManagementComponent implements OnInit, OnDestroy{
       });
   }
 
-  private disableEnableUser(userId): void {
+  private disableEnableUser(event): void {
+
+    const userId = Number(event.target.id);
+    const classes = event.target.classList;
 
     this.subscriptionDisableEnableUser = this.userService.disableEnableUser(userId).subscribe(() => {
 
+      this.changeButton(event, classes);
+      
     }, (error) => {
 
     });
@@ -69,6 +74,21 @@ export class UserManagementComponent implements OnInit, OnDestroy{
     }, (error) => {
 
     });
+  }
+
+  private changeButton(event, classes) {
+
+    if (classes.contains('btn-danger')) {
+
+      classes.remove('btn-danger');
+      classes.add('btn-success');
+      event.srcElement.innerText = 'Enable';
+    } else {
+
+      classes.remove('btn-success');
+      classes.add('btn-danger');
+      event.srcElement.innerText = 'Disable';
+    }
   }
 
   ngOnDestroy(): void {

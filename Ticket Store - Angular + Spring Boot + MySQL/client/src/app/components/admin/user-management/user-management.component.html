@@ -38,9 +38,9 @@
                         <td>{{user.role}}</td>
                         <td>
                             <a class="btn btn-default" [routerLink]="['edit/', user.id]">Edit</a>
-                            <a class="btn btn-danger" *ngIf="!user.accountLocked; else elseBlock" (click)="disableEnableUser(user.id)">Disable</a>
+                            <a class="btn btn-danger" *ngIf="!user.accountLocked; else elseBlock" (click)="disableEnableUser($event)" id="{{user.id}}">Disable</a>
                             <ng-template #elseBlock>
-                                <a class="btn btn-success" (click)="disableEnableUser(user.id)">Enable</a>
+                                <a class="btn btn-success" (click)="disableEnableUser($event)" id="{{user.id}}">Enable</a>
                             </ng-template>
                         </td>
                     </tr>
