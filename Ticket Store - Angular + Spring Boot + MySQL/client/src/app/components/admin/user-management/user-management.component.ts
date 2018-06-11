@@ -11,7 +11,7 @@ import { UserEditModel } from '../../../core/models/binding/user-edit.model';
   templateUrl: './user-management.component.html',
   styleUrls: ['./user-management.component.css']
 })
-export class UserManagementComponent implements OnInit, OnDestroy{
+export class UserManagementComponent implements OnInit, OnDestroy {
 
   private subscriptionGetAllUsers: ISubscription;
   private subscriptionGetAllUsersByRole: ISubscription;
@@ -60,7 +60,7 @@ export class UserManagementComponent implements OnInit, OnDestroy{
     this.subscriptionDisableEnableUser = this.userService.disableEnableUser(userId).subscribe(() => {
 
       this.changeButton(event, classes);
-      
+
     }, (error) => {
 
     });

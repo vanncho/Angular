@@ -10,13 +10,13 @@ import { RouterModule } from '@angular/router';
 
 // Components
 import { AppComponent } from './app.component';
-import { LoginComponent } from './components/authentication/login/login.component';
-import { LogoutComponent } from './components/authentication/logout/logout.component';
-import { RegisterComponent } from './components/authentication/register/register.component';
-import { FooterComponent } from './components/shared/footer/footer.component';
-import { HeaderComponent } from './components/shared/header/header.component';
-import { HeaderAdminComponent } from './components/shared/header-admin/header-admin.component';
-import { NotFoundComponent } from './components/shared/not-found/not-found.component';
+// import { LoginComponent } from './components/authentication/login/login.component';
+// import { LogoutComponent } from './components/authentication/logout/logout.component';
+// import { RegisterComponent } from './components/authentication/register/register.component';
+// import { FooterComponent } from './components/shared/footer/footer.component';
+// import { HeaderComponent } from './components/shared/header/header.component';
+// import { HeaderAdminComponent } from './components/shared/header-admin/header-admin.component';
+// import { NotFoundComponent } from './components/shared/not-found/not-found.component';
 import { HomeUserComponent } from './components/user/home-user/home-user.component';
 
 // Services & Guards
@@ -27,6 +27,7 @@ import { CookieService } from 'angular2-cookie/core';
 import { CookieManagerService } from './core/services/cookie-manager.service';
 import { UserService } from './core/services/user.service';
 import { RoleService } from './core/services/role.service';
+import { CategoryService } from './core/services/category.service';
 
 // Utils
 import { AuthenticationUtility } from './core/utils/authentication.util';
@@ -54,7 +55,8 @@ import { AuthenticationUtility } from './core/utils/authentication.util';
     CookieService,
     CookieManagerService,
     UserService,
-    RoleService
+    RoleService,
+    CategoryService
   ],
   bootstrap: [AppComponent]
 })

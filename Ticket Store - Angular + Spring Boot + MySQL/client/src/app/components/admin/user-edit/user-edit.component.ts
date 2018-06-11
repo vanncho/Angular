@@ -49,7 +49,7 @@ export class UserEditComponent implements OnInit, OnDestroy {
 
     const userId = this.route.params['value'].id;
     this.subscriptionGetUserById = this.userService.getUserById(userId).subscribe((userToEdit) => {
-console.log(userToEdit);
+
       this.subscriptionGetAllRoles = this.roleService.getAllRoles().subscribe((rolesData) => {
 
         this.user = new UserEditViewModel(
