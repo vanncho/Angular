@@ -6,13 +6,11 @@ import { AdminGuard } from '../../core/guards/admin/admin.guard';
 import { AuthenticationService } from '../../core/services/authentication.service';
 
 import { adminComponents } from './index';
-import { CategoryEditComponent } from './category-edit/category-edit.component';
 
 
 @NgModule({
     declarations: [
-        ...adminComponents,
-        CategoryEditComponent
+        ...adminComponents
     ],
     imports: [
         CommonModule,
@@ -22,7 +20,10 @@ import { CategoryEditComponent } from './category-edit/category-edit.component';
             {path: 'users/edit/:id', canActivate: [AdminGuard], component: adminComponents[2]},
             {path: 'categories', canActivate: [AdminGuard], component: adminComponents[3]},
             {path: 'categories/add', canActivate: [AdminGuard], component: adminComponents[4]},
-            {path: 'categories/edit/:id', canActivate: [AdminGuard], component: adminComponents[5]}
+            {path: 'categories/edit/:id', canActivate: [AdminGuard], component: adminComponents[5]},
+            {path: 'events', canActivate: [AdminGuard], component: adminComponents[6]},
+            {path: 'events/add', canActivate: [AdminGuard], component: adminComponents[7]},
+            {path: 'events/add/ticket', canActivate: [AdminGuard], component: adminComponents[8]},
         ]),
         FormsModule
     ],

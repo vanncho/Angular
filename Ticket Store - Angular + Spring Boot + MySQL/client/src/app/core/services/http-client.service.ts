@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { Observable } from 'rxjs/Observable';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
+import { Router } from '@angular/router';
 
 import { CookieManagerService} from '../../core/services/cookie-manager.service';
 
@@ -13,6 +14,7 @@ export class HttpClientService {
 
   constructor(private http: HttpClient,
               private toastr: ToastsManager,
+              private router: Router,
               private cookieService: CookieManagerService) {
   }
 
@@ -57,7 +59,9 @@ export class HttpClientService {
   private handleError(err: any) {
 
     if (err.status === 401 || err.status === 504) {
+
       this.cookieService.removeLoginData();
+      this.router.navigate(['user/home']);
     }
 
     if (err.status === 400) {

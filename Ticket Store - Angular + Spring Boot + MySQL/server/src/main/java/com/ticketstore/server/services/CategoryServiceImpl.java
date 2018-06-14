@@ -33,7 +33,7 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public List<CategoryViewModel> getAllCategories() {
 
-        List<Category> categories = categoryRepository.findAll();
+        List<Category> categories = categoryRepository.getAllOrderedByName();
         List<CategoryViewModel> categoryModels = new ArrayList<>(categories.size());
         CategoryViewModel viewModel;
 
@@ -81,7 +81,7 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public List<CategoryViewModel> searchCategoryByName(String categoryName) {
 
-        List<Category> categories = categoryRepository.getAllByNameIsStartingWith(categoryName);
+        List<Category> categories = categoryRepository.getAllByNameIsStartingWithOrderByName(categoryName);
         List<CategoryViewModel> categoryModels = new ArrayList<>(categories.size());
         CategoryViewModel categoryViewModel;
 

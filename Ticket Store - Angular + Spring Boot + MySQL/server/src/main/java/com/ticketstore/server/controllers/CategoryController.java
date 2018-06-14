@@ -26,10 +26,10 @@ public class CategoryController {
     @GetMapping("/allCategories")
     public ResponseEntity<List<CategoryViewModel>> getCategories() {
 
-    List<CategoryViewModel> categories = categoryService.getAllCategories();
+        List<CategoryViewModel> categories = categoryService.getAllCategories();
 
-    return new ResponseEntity<>(categories, HttpStatus.OK);
-}
+        return new ResponseEntity<>(categories, HttpStatus.OK);
+    }
 
     @PostMapping("addCategory")
     public ResponseEntity addCategory(@RequestBody CategoryAddModel categoryModel) {

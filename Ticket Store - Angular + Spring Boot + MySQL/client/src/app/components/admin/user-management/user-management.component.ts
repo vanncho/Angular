@@ -68,12 +68,15 @@ export class UserManagementComponent implements OnInit, OnDestroy {
 
   private getUsersByUsername(): void {
 
-    this.subscriptionSearchUsers = this.userService.searchUsersWithUsernameLike(this.searchedUsername).subscribe((usersFromDb) => {
+    if (this.searchedUsername.length > 0) {
 
-      this.users = Object.values(usersFromDb);
-    }, (error) => {
+      this.subscriptionSearchUsers = this.userService.searchUsersWithUsernameLike(this.searchedUsername).subscribe((usersFromDb) => {
 
-    });
+        this.users = Object.values(usersFromDb);
+      }, (error) => {
+
+      });
+    }
   }
 
   private changeButton(event, classes) {

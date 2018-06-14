@@ -112,7 +112,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<UserViewModel> getAllUsers() {
 
-        List<User> users = userRepository.findAll();
+        List<User> users = userRepository.getAllOrderByUsername();
         List<UserViewModel> usersToView = new ArrayList<>(users.size());
 
         for (User user : users) {
@@ -200,7 +200,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<UserViewModel> searchUsersByName(String username) {
 
-        List<User> users = userRepository.getAllByUsernameIsStartingWith(username);
+        List<User> users = userRepository.getAllByUsernameIsStartingWithOrderByUsername(username);
         List<UserViewModel> usersToView = new ArrayList<>(users.size());
 
         for (User user : users) {

@@ -28,9 +28,11 @@ import { CookieManagerService } from './core/services/cookie-manager.service';
 import { UserService } from './core/services/user.service';
 import { RoleService } from './core/services/role.service';
 import { CategoryService } from './core/services/category.service';
+import { EventService } from './core/services/event.service';
 
 // Utils
 import { AuthenticationUtility } from './core/utils/authentication.util';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -44,7 +46,9 @@ import { AuthenticationUtility } from './core/utils/authentication.util';
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedModule,
-    ToastModule.forRoot()
+    ToastModule.forRoot(),
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [RouterModule],
   providers: [
@@ -56,7 +60,8 @@ import { AuthenticationUtility } from './core/utils/authentication.util';
     CookieManagerService,
     UserService,
     RoleService,
-    CategoryService
+    CategoryService,
+    EventService
   ],
   bootstrap: [AppComponent]
 })

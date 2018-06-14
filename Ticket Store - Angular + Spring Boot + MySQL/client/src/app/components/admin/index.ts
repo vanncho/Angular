@@ -4,6 +4,9 @@ import { UserEditComponent } from './user-edit/user-edit.component';
 import { CategoryManagementComponent } from './category-management/category-management.component';
 import { CategoryAddComponent } from './category-add/category-add.component';
 import { CategoryEditComponent } from './category-edit/category-edit.component';
+import { EventManagementComponent } from './event-management/event-management.component';
+import { EventAddComponent } from './event-add/event-add.component';
+import { TicketAddComponent } from './ticket-add/ticket-add.component';
 
 export const adminComponents = [
     HomeAdminComponent,
@@ -11,5 +14,8 @@ export const adminComponents = [
     UserEditComponent,
     CategoryManagementComponent,
     CategoryAddComponent,
-    CategoryEditComponent
+    CategoryEditComponent,
+    EventManagementComponent,
+    EventAddComponent,
+    TicketAddComponent
 ];
