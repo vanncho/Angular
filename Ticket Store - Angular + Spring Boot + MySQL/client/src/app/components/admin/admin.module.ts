@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Router } from '@angular/router';
 import { AdminGuard } from '../../core/guards/admin/admin.guard';
@@ -23,9 +23,12 @@ import { adminComponents } from './index';
             {path: 'categories/edit/:id', canActivate: [AdminGuard], component: adminComponents[5]},
             {path: 'events', canActivate: [AdminGuard], component: adminComponents[6]},
             {path: 'events/add', canActivate: [AdminGuard], component: adminComponents[7]},
-            {path: 'events/add/ticket', canActivate: [AdminGuard], component: adminComponents[8]},
+            {path: 'events/add/ticket/:id', canActivate: [AdminGuard], component: adminComponents[8]},
+            {path: 'events/edit/:id', canActivate: [AdminGuard], component: adminComponents[9]},
+            {path: 'events/edit/ticket/:id', canActivate: [AdminGuard], component: adminComponents[10]},
         ]),
-        FormsModule
+        FormsModule,
+        ReactiveFormsModule
     ],
     exports: [
         ...adminComponents

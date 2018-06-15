@@ -38,7 +38,7 @@
                         <td><span class="descriptionText">{{event.description}}</span></td>
                         <td id="btnsAction">
                             <a class="btn btn-default" [routerLink]="['/admin/events/edit/', event.id]">Edit</a>
-                            <a class="btn btn-default" [routerLink]="['/admin/events/add/ticket/']">Add Ticket</a>
+                            <a class="btn btn-default" [routerLink]="['/admin/events/add/ticket/', event.id]">Add Ticket</a>
                             <button class="btn btn-default" (click)="deleteEvent(event.id)">Delete</button>
                         </td>
                     </tr>
@@ -53,27 +53,14 @@
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody *ngFor="let ticket of event.tickets">
                                     <tr>
-                                        <td>Kids</td>
-                                        <td>7</td>
-                                        <td>5</td>
+                                        <td>{{ticket.priceCategory}}</td>
+                                        <td>{{ticket.price}}</td>
+                                        <td>{{ticket.ticketsCount}}</td>
                                         <td>
-                                            <a class="btn btn-default" href="#/admin/events/edit/ticket/:59b3a086797e4f82049335d3">Edit</a>
-                                            <form class="adminUsersAction" action="#/admin/events/delete/ticket/:59b3a086797e4f82049335d3" method="post">
-                                                <button class="btn btn-default">Delete</button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Parents</td>
-                                        <td>30</td>
-                                        <td>2</td>
-                                        <td>
-                                            <a class="btn btn-default" href="#/admin/events/edit/ticket/:59b3a0a061a2425a573f93da">Edit</a>
-                                            <form class="adminUsersAction" action="#/admin/events/delete/ticket/:59b3a0a061a2425a573f93da" method="post">
-                                                <button class="btn btn-default">Delete</button>
-                                            </form>
+                                            <a class="btn btn-default" [routerLink]="['/admin/events/edit/ticket/', ticket.id]">Edit</a>
+                                            <button class="btn btn-default" (click)="deleteTicket(ticket.id, event.id)">Delete</button>
                                         </td>
                                     </tr>
                                 </tbody>

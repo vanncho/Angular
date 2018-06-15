@@ -1,12 +1,14 @@
-package com.ticketstore.server.models.Ticket;
+package com.ticketstore.server.models.Ticket.binding;
 
 public class TicketAddModel {
 
     private Double price;
 
-    private Integer count;
+    private Integer ticketsCount;
 
     private String priceCategory;
+
+    private Long eventId;
 
     public Double getPrice() {
         return price;
@@ -16,12 +18,12 @@ public class TicketAddModel {
         this.price = price;
     }
 
-    public Integer getCount() {
-        return count;
+    public Integer getTicketsCount() {
+        return ticketsCount;
     }
 
-    public void setCount(Integer count) {
-        this.count = count;
+    public void setTicketsCount(Integer ticketsCount) {
+        this.ticketsCount = ticketsCount;
     }
 
     public String getPriceCategory() {
@@ -30,5 +32,13 @@ public class TicketAddModel {
 
     public void setPriceCategory(String priceCategory) {
         this.priceCategory = priceCategory;
+    }
+
+    public Long getEventId() {
+        return eventId;
+    }
+
+    public void setEventId(Long eventId) {
+        this.eventId = eventId;
     }
 }

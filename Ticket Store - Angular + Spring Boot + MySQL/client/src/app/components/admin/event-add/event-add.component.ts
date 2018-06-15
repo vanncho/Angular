@@ -4,8 +4,8 @@ import { Router } from '@angular/router';
 
 import { EventService } from '../../../core/services/event.service';
 import { EventAddModel } from '../../../core/models/binding/event-add.model';
-import { CategoryService } from '../../../core/services/category.service';
 
+import { CategoryService } from '../../../core/services/category.service';
 import { Category } from '../../../core/models/view/category.model';
 
 @Component({
@@ -41,7 +41,7 @@ export class EventAddComponent implements OnInit, OnDestroy {
     });
   }
 
-  private loadCategories() {
+  private loadCategories(): void {
 
     this.subscriptionLoadCategories = this.categoryService.getAllCategories().subscribe((data) => {
 

@@ -1,6 +1,10 @@
 package com.ticketstore.server.models.Event.view;
 
 import com.ticketstore.server.models.Category.view.CategoryViewModel;
+import com.ticketstore.server.models.Ticket.view.TicketListModel;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class EventViewModel {
 
@@ -13,6 +17,12 @@ public class EventViewModel {
     private String description;
 
     private CategoryViewModel category;
+
+    private List<TicketListModel> tickets;
+
+    public EventViewModel() {
+        this.tickets = new ArrayList<>();
+    }
 
     public Long getId() {
         return id;
@@ -52,5 +62,13 @@ public class EventViewModel {
 
     public void setCategory(CategoryViewModel category) {
         this.category = category;
+    }
+
+    public List<TicketListModel> getTickets() {
+        return tickets;
+    }
+
+    public void setTickets(List<TicketListModel> tickets) {
+        this.tickets = tickets;
     }
 }

@@ -1,4 +1,5 @@
 import { Category } from './category.model';
+import { TicketListModel } from './ticket-list.model';
 
 export class EventListModel {
 
@@ -7,6 +8,7 @@ export class EventListModel {
         public title: string,
         public location: string,
         public details: string,
-        public categories: Array<Category>
+        public category: Category,
+        public tickets: Array<TicketListModel>
     ) {}
 }

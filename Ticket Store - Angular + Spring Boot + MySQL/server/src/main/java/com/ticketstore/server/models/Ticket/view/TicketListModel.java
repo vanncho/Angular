@@ -1,19 +1,12 @@
-package com.ticketstore.server.entities;
+package com.ticketstore.server.models.Ticket.view;
 
-import javax.persistence.*;
-import java.io.Serializable;
+public class TicketListModel {
 
-@Entity
-@Table(name = "tickets")
-public class Ticket implements Serializable {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private Double price;
 
-    private Integer count;
+    private Integer ticketsCount;
 
     private String priceCategory;
 
@@ -35,12 +28,12 @@ public class Ticket implements Serializable {
         this.price = price;
     }
 
-    public Integer getCount() {
-        return count;
+    public Integer getTicketsCount() {
+        return ticketsCount;
     }
 
-    public void setCount(Integer count) {
-        this.count = count;
+    public void setTicketsCount(Integer ticketsCount) {
+        this.ticketsCount = ticketsCount;
     }
 
     public String getPriceCategory() {

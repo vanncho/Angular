@@ -29,10 +29,10 @@ import { UserService } from './core/services/user.service';
 import { RoleService } from './core/services/role.service';
 import { CategoryService } from './core/services/category.service';
 import { EventService } from './core/services/event.service';
+import { TicketService } from './core/services/ticket.service';
 
 // Utils
 import { AuthenticationUtility } from './core/utils/authentication.util';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -46,9 +46,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedModule,
-    ToastModule.forRoot(),
-    FormsModule,
-    ReactiveFormsModule
+    ToastModule.forRoot()
   ],
   exports: [RouterModule],
   providers: [
@@ -61,7 +59,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     UserService,
     RoleService,
     CategoryService,
-    EventService
+    EventService,
+    TicketService
   ],
   bootstrap: [AppComponent]
 })

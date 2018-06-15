@@ -1,10 +1,7 @@
 package com.ticketstore.server.controllers;
 
-import com.ticketstore.server.models.Category.binding.CategoryAddModel;
-import com.ticketstore.server.models.Category.binding.CategoryEditModel;
-import com.ticketstore.server.models.Category.view.CategoryViewModel;
-import com.ticketstore.server.models.Ticket.TicketAddModel;
-import com.ticketstore.server.services.interfaces.CategoryService;
+import com.ticketstore.server.models.Ticket.binding.TicketAddModel;
+import com.ticketstore.server.models.Ticket.view.TicketListModel;
 import com.ticketstore.server.services.interfaces.TicketService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,12 +22,13 @@ public class TicketController {
         this.ticketService = ticketService;
     }
 
-//    @GetMapping("/allCategories")
-//    public ResponseEntity<List<CategoryViewModel>> getCategories() {
+    // TODO: REMOVE functionality
+//    @GetMapping("/allTickets/{eventId}")
+//    public ResponseEntity<List<TicketListModel>> getTicketsForEvent(@PathVariable("eventId") Long eventId) {
 //
-//        List<CategoryViewModel> categories = categoryService.getAllCategories();
+//        List<TicketListModel> tickets = ticketService.getAllTicketsForEvent(eventId);
 //
-//        return new ResponseEntity<>(categories, HttpStatus.OK);
+//        return new ResponseEntity<>(tickets, HttpStatus.OK);
 //    }
 
     @PostMapping("addTicket")
@@ -57,13 +55,13 @@ public class TicketController {
 //        return new ResponseEntity(HttpStatus.OK);
 //    }
 //
-//    @DeleteMapping("deleteCategory/{categoryId}")
-//    public ResponseEntity deleteCategory(@PathVariable Long categoryId) {
-//
-//        categoryService.deleteCategory(categoryId);
-//
-//        return new ResponseEntity(HttpStatus.OK);
-//
-//    }
+    @DeleteMapping("deleteTicket/{ticketId}")
+    public ResponseEntity deleteCategory(@PathVariable Long ticketId) {
+
+        ticketService.deleteTicket(ticketId);
+
+        return new ResponseEntity(HttpStatus.OK);
+
+    }
 
 }

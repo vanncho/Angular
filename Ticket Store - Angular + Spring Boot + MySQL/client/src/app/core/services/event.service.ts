@@ -20,4 +20,19 @@ export class EventService {
 
         return this.httpClientService.post('/api/addEvent', JSON.stringify(event), this.authUtil.headersBasic());
     }
+
+    deleteEvent(eventId): Observable<Object> {
+
+        return this.httpClientService.delete('/api/deleteEvent/' + eventId, this.authUtil.headersBasic());
+    }
+
+    getEventById(eventId): Observable<Object> {
+
+        return this.httpClientService.get('/api/getEvent/' + eventId, this.authUtil.headersBasic);
+    }
+
+    editEvent(event): Observable<Object> {
+
+        return this.httpClientService.post('/api/editEvent', JSON.stringify(event), this.authUtil.headersBasic());
+    }
 }
