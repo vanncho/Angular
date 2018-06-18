@@ -2,14 +2,11 @@ package com.ticketstore.server.services;
 
 import com.ticketstore.server.entities.Ticket;
 import com.ticketstore.server.models.Ticket.binding.TicketAddModel;
-import com.ticketstore.server.models.Ticket.view.TicketListModel;
+import com.ticketstore.server.models.Ticket.binding.TicketEditModel;
 import com.ticketstore.server.repositories.TicketRepository;
 import com.ticketstore.server.services.interfaces.TicketService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Service
 public class TicketServiceImpl implements TicketService {
@@ -40,24 +37,29 @@ public class TicketServiceImpl implements TicketService {
     }
 
     @Override
-    public List<TicketListModel> getAllTicketsForEvent(Long eventId) {
+    public TicketEditModel getTicketById(Long ticketId) {
 
-        List<Ticket> tickets = ticketRepository.getAllTicketsForEvent(eventId);
-        List<TicketListModel> ticketModels = new ArrayList<>(tickets.size());
-        TicketListModel ticketListModel;
+        Ticket ticket = ticketRepository.getOne(ticketId);
+        TicketEditModel ticketEditModel = new TicketEditModel();
 
-        for (Ticket ticket : tickets) {
+        ticketEditModel.setId(ticket.getId());
+        ticketEditModel.setPrice(ticket.getPrice());
+        ticketEditModel.setPriceCategory(ticket.getPriceCategory());
+        ticketEditModel.setTicketsCount(ticket.getCount());
 
-            ticketListModel = new TicketListModel();
-            ticketListModel.setId(ticket.getId());
-            ticketListModel.setPrice(ticket.getPrice());
-            ticketListModel.setTicketsCount(ticket.getCount());
-            ticketListModel.setPriceCategory(ticket.getPriceCategory());
-            ticketListModel.setEventId(ticket.getEventId());
-
-            ticketModels.add(ticketListModel);
-        }
-
-        return ticketModels;
+        return ticketEditModel;
     }
+
+    @Override
+    public void editTicket(TicketEditModel ticketModel) {
+
+        Ticket ticket = ticketRepository.getOne(ticketModel.getId());
+
+        ticket.setPrice(ticketModel.getPrice());
+        ticket.setPriceCategory(ticketModel.getPriceCategory());
+        ticket.setCount(ticketModel.getTicketsCount());
+
+        ticketRepository.save(ticket);
+    }
+
 }

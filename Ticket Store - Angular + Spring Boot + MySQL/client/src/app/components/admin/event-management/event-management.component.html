@@ -10,10 +10,10 @@
                 <div id="searchEventBtn">
                     <label class="form-label"></label>
                     <span id="searchForm">
-                              <input id="showform" class="form-control" name="title" value="" placeholder="Enter event title..." type="text">
+                        <input id="name" pattern="^[a-zA-Z0-9]+$" name="title" placeholder="Enter event title..." class="form-control" [(ngModel)]="searchedEvent" [ngModelOptions]="{standalone: true}" #title="ngModel" required/>
                           </span>
                     <span id="searchBtn">
-                      <button class="btn btn-default">Find</button>
+                      <button class="btn btn-default" (click)="getEventByTitle()">Find</button>
                           </span>
                 </div>
             </form>

@@ -12,7 +12,7 @@
                         <input id="name" pattern="^[a-zA-Z0-9]+$" name="name" placeholder="Enter category name..." class="form-control" [(ngModel)]="searchedCategory" [ngModelOptions]="{standalone: true}" #name="ngModel" required/>
                     </span>
                     <span id="searchBtn">
-                      <button class="btn btn-default" (click)=" getCategoryByName()">Find</button>
+                      <button class="btn btn-default" (click)="getCategoryByName()">Find</button>
                     </span>
                 </div>
             </form>

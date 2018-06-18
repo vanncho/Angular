@@ -63,4 +63,12 @@ public class EventController {
         return new ResponseEntity(HttpStatus.OK);
 
     }
+
+    @PostMapping("/searchEvent")
+    public ResponseEntity<List<EventViewModel>> searchEventByName(@RequestBody String eventTitle) {
+
+        List<EventViewModel> events = eventService.searchEventByName(eventTitle);
+
+        return new ResponseEntity<>(events, HttpStatus.OK);
+    }
 }

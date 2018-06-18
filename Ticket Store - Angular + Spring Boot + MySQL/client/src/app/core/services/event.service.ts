@@ -35,4 +35,9 @@ export class EventService {
 
         return this.httpClientService.post('/api/editEvent', JSON.stringify(event), this.authUtil.headersBasic());
     }
+
+    searchEventWithTitleLike(title): Observable<Object> {
+
+        return this.httpClientService.post('/api/searchEvent', title, this.authUtil.headersBasic);
+    }
 }

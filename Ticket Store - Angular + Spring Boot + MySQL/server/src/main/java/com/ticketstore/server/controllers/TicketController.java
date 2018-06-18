@@ -1,6 +1,7 @@
 package com.ticketstore.server.controllers;
 
 import com.ticketstore.server.models.Ticket.binding.TicketAddModel;
+import com.ticketstore.server.models.Ticket.binding.TicketEditModel;
 import com.ticketstore.server.models.Ticket.view.TicketListModel;
 import com.ticketstore.server.services.interfaces.TicketService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,22 +40,22 @@ public class TicketController {
         return new ResponseEntity(HttpStatus.OK);
     }
 
-//    @GetMapping("getCategory/{categoryId}")
-//    public ResponseEntity<CategoryViewModel> getCategoryById(@PathVariable Long categoryId) {
-//
-//        CategoryViewModel category = categoryService.getCategoryById(categoryId);
-//
-//        return new ResponseEntity<>(category, HttpStatus.OK);
-//    }
-//
-//    @PostMapping("editCategory")
-//    public ResponseEntity addCategory(@RequestBody CategoryEditModel categoryModel) {
-//
-//        categoryService.editCategory(categoryModel);
-//
-//        return new ResponseEntity(HttpStatus.OK);
-//    }
-//
+    @GetMapping("getTicket/{ticketId}")
+    public ResponseEntity<TicketEditModel> getTicketById(@PathVariable Long ticketId) {
+
+        TicketEditModel ticket = ticketService.getTicketById(ticketId);
+
+        return new ResponseEntity<>(ticket, HttpStatus.OK);
+    }
+
+    @PostMapping("editTicket")
+    public ResponseEntity editTicket(@RequestBody TicketEditModel ticketModel) {
+
+        ticketService.editTicket(ticketModel);
+
+        return new ResponseEntity(HttpStatus.OK);
+    }
+
     @DeleteMapping("deleteTicket/{ticketId}")
     public ResponseEntity deleteCategory(@PathVariable Long ticketId) {
 

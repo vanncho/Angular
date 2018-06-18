@@ -15,7 +15,9 @@ export class EventManagementComponent implements OnInit, OnDestroy {
   private subscriptionGetAllEvents: ISubscription;
   private subscriptionDeleteEvent: ISubscription;
   private subscriptionDeleteTicket: ISubscription;
+  private subscriptionSearchEvent: ISubscription;
   private events: Array<EventListModel>;
+  private searchedEvent: string;
 
   constructor(private eventService: EventService,
               private ticketService: TicketService) { }
@@ -78,12 +80,43 @@ export class EventManagementComponent implements OnInit, OnDestroy {
 
     this.subscriptionDeleteTicket = this.ticketService.deleteTicket(ticketId).subscribe(() => {
 
-      const index = this.events.indexOf(ticketId);
-      this.events.splice(index, 1);
+      let breakOuter = false;
+
+      for (const event of this.events) {
+
+        for (const ticket of event.tickets) {
+
+          if (ticket.id === ticketId) {
+
+            const indexOfTicket = event.tickets.indexOf(ticketId);
+            event.tickets.splice(indexOfTicket, 1);
+            breakOuter = true;
+            break;
+          }
+        }
+
+        if (breakOuter) {
+          break;
+        }
+      }
 
     }, (error) => {
 
     });
+  }
+
+  private getEventByTitle(): void {
+
+    if (this.searchedEvent.length > 0) {
+
+      this.subscriptionSearchEvent = this.eventService.searchEventWithTitleLike(this.searchedEvent).subscribe((data) => {
+
+        this.events = Object.values(data);
+      }, (error) => {
+
+      });
+    }
+
   }
 
   ngOnDestroy(): void {
@@ -98,6 +131,10 @@ export class EventManagementComponent implements OnInit, OnDestroy {
 
     if (this.subscriptionDeleteTicket) {
       this.subscriptionDeleteTicket.unsubscribe();
+    }
+
+    if (this.subscriptionSearchEvent) {
+      this.subscriptionSearchEvent.unsubscribe();
     }
   }
 }

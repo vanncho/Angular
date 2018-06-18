@@ -1,9 +1,7 @@
 package com.ticketstore.server.services.interfaces;
 
 import com.ticketstore.server.models.Ticket.binding.TicketAddModel;
-import com.ticketstore.server.models.Ticket.view.TicketListModel;
-
-import java.util.List;
+import com.ticketstore.server.models.Ticket.binding.TicketEditModel;
 
 public interface TicketService {
 
@@ -11,5 +9,7 @@ public interface TicketService {
 
     void deleteTicket(Long ticketId);
 
-    List<TicketListModel> getAllTicketsForEvent(Long eventId);
+    TicketEditModel getTicketById(Long ticketId);
+
+    void editTicket(TicketEditModel ticketModel);
 }

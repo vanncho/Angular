@@ -68,6 +68,7 @@ export class CategoryManagementComponent implements OnInit, OnDestroy {
 
     }, (error) => {
 
+      this.toastr.error(error.error);
     });
   }
 

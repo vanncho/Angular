@@ -48,7 +48,7 @@ public class CategoryController {
     }
 
     @PostMapping("editCategory")
-    public ResponseEntity addCategory(@RequestBody CategoryEditModel categoryModel) {
+    public ResponseEntity editCategory(@RequestBody CategoryEditModel categoryModel) {
 
         categoryService.editCategory(categoryModel);
 
@@ -58,10 +58,14 @@ public class CategoryController {
     @DeleteMapping("deleteCategory/{categoryId}")
     public ResponseEntity deleteCategory(@PathVariable Long categoryId) {
 
-        categoryService.deleteCategory(categoryId);
+        boolean isDeleted = categoryService.deleteCategory(categoryId);
 
-        return new ResponseEntity(HttpStatus.OK);
+        if (isDeleted) {
 
+            return new ResponseEntity(HttpStatus.OK);
+        }
+
+        return new ResponseEntity("Can not delete category due using in event!", HttpStatus.BAD_REQUEST);
     }
 
     @PostMapping("/searchCategory")

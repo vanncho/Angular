@@ -11,33 +11,24 @@ export class TicketService {
                 private httpClientService: HttpClientService) {
     }
 
-    // getAllCategories(): Observable<Object> {
-
-    //     return this.httpClientService.get('/api/allCategories', this.authUtil.headersBasic());
-    // }
-
     addTicket(ticket): Observable<Object> {
 
         return this.httpClientService.post('/api/addTicket', JSON.stringify(ticket), this.authUtil.headersBasic());
     }
 
-    // getCategoryById(categoryId): Observable<Object> {
+    getTicketById(ticketId): Observable<Object> {
 
-    //     return this.httpClientService.get('/api/getCategory/' + categoryId, this.authUtil.headersBasic);
-    // }
+        return this.httpClientService.get('/api/getTicket/' + ticketId, this.authUtil.headersBasic);
+    }
 
-    // editCategory(category): Observable<Object> {
+    editTicket(ticket): Observable<Object> {
 
-    //     return this.httpClientService.post('/api/editCategory', JSON.stringify(category), this.authUtil.headersBasic());
-    // }
+        return this.httpClientService.post('/api/editTicket', JSON.stringify(ticket), this.authUtil.headersBasic());
+    }
 
     deleteTicket(ticketId): Observable<Object> {
 
         return this.httpClientService.delete('/api/deleteTicket/' + ticketId, this.authUtil.headersBasic());
     }
 
-    // searchCategoryWithNameLike(name): Observable<Object> {
-
-    //     return this.httpClientService.post('/api/searchCategory', name, this.authUtil.headersBasic);
-    // }
 }

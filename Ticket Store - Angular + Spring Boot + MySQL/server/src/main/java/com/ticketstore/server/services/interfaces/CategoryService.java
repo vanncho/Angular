@@ -16,7 +16,7 @@ public interface CategoryService {
 
     void editCategory(CategoryEditModel categoryModel);
 
-    void deleteCategory(Long categoryId);
+    boolean deleteCategory(Long categoryId);
 
     List<CategoryViewModel> searchCategoryByName(String categoryName);
 }

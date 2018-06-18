@@ -17,4 +17,6 @@ public interface EventService {
     EventEditModel getEventById(Long eventId);
 
     void editEvent(EventEditModel event);
+
+    List<EventViewModel> searchEventByName(String eventName);
 }

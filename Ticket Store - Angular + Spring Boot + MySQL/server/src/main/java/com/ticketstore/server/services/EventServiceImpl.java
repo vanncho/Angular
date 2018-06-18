@@ -42,21 +42,10 @@ public class EventServiceImpl implements EventService {
         List<Event> events = eventRepository.findAll();
         List<EventViewModel> eventModels = new ArrayList<>(events.size());
         EventViewModel model;
-        List<TicketListModel> ticketModels;
 
         for (Event event : events) {
 
-            model = new EventViewModel();
-            model.setId(event.getId());
-            model.setTitle(event.getTitle());
-            model.setLocation(event.getLocation());
-            model.setDescription(event.getDescription());
-
-            CategoryViewModel categoryModel = convertCategoryEntityToModel(event.getCategory());
-            model.setCategory(categoryModel);
-
-            ticketModels = getAllTicketsForEvent(event.getId());
-            model.setTickets(ticketModels);
+            model = convertEventEntityToModel(event);
 
             eventModels.add(model);
         }
@@ -139,6 +128,42 @@ public class EventServiceImpl implements EventService {
         eventRepository.save(event);
     }
 
+    @Override
+    public List<EventViewModel> searchEventByName(String eventTitle) {
+
+        List<Event> events = eventRepository.getAllByTitleIsStartingWithOrderByTitle(eventTitle);
+        List<EventViewModel> eventModels = new ArrayList<>(events.size());
+        EventViewModel model;
+
+        for (Event event : events) {
+
+            model = convertEventEntityToModel(event);
+
+            eventModels.add(model);
+        }
+
+        return eventModels;
+    }
+
+    private EventViewModel convertEventEntityToModel(Event event) {
+
+        EventViewModel model = new EventViewModel();
+        List<TicketListModel> ticketModels;
+
+        model.setId(event.getId());
+        model.setTitle(event.getTitle());
+        model.setLocation(event.getLocation());
+        model.setDescription(event.getDescription());
+
+        CategoryViewModel categoryModel = convertCategoryEntityToModel(event.getCategory());
+        model.setCategory(categoryModel);
+
+        ticketModels = getAllTicketsForEvent(event.getId());
+        model.setTickets(ticketModels);
+
+        return model;
+    }
+
     private CategoryViewModel convertCategoryEntityToModel(Category category) {
 
         CategoryViewModel categoryViewModel = new CategoryViewModel();
@@ -148,7 +173,6 @@ public class EventServiceImpl implements EventService {
         return categoryViewModel;
     }
 
-    // TODO: refactor duplicate code
     private List<TicketListModel> getAllTicketsForEvent(Long eventId) {
 
         List<Ticket> tickets = ticketRepository.getAllTicketsForEvent(eventId);
