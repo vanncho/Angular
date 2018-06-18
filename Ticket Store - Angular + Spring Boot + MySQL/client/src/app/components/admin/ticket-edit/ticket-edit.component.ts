@@ -39,7 +39,7 @@ export class TicketEditComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
 
     this.getTicketById();
-    this.validateFrom(this.ticket.price, this.ticket.ticketsCount, this.ticket.priceCategory);
+    this.validateForm(this.ticket.price, this.ticket.ticketsCount, this.ticket.priceCategory);
   }
 
   private getTicketById() {
@@ -50,7 +50,7 @@ export class TicketEditComponent implements OnInit, OnDestroy {
 
       this.ticket = new TicketEditModel(data['id'], data['ticketsCount'], data['price'], data['priceCategory']);
 
-      this.validateFrom(data['price'], data['ticketsCount'], data['priceCategory']);
+      this.validateForm(data['price'], data['ticketsCount'], data['priceCategory']);
 
     }, (error) => {
 
@@ -72,7 +72,7 @@ export class TicketEditComponent implements OnInit, OnDestroy {
     });
   }
 
-  private validateFrom(price, ticketsCount, priceCategory): void {
+  private validateForm(price, ticketsCount, priceCategory): void {
 
     this.rForm = this.formBuilder.group({
       'price': [price, Validators.compose([Validators.required, Validators.min(1)])],
